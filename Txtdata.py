@@ -7,22 +7,22 @@ class Txtdata:
     def __init__(self, data):
         self.data = data
 
-    def read(self, f, enc='utf-8'):
+    def read(self, enc='utf-8'):
+        f = self.data
         data_map = list()
         with open(f, "r", encoding=enc) as file:
             for line in file:
                 data_map.append(list(map(str, line.split())))
-        return (data_map)
+        self.data_map = data_map
+        return self
 
-    def to_df(self, data_arr):
-        words = list()
+    def to_df(self):
+        data_arr = self.data_map
+        print('biba')
         for i in range(len(data_arr)):
-            print()
-            # for j in range(len(data_arr[i])): words.append({"english": data_arr[i][j]})
-        # return words
+            print(data_arr[i])
+        return self
 
 
 if __name__ == "__main__":
-    a = Txtdata('privet')
-    a_map = a.to_df(a.read('test.txt'))
-    print(a)
+    a = Txtdata('test.txt').read().to_df()
