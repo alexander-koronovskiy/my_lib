@@ -19,7 +19,7 @@ def solution(path=r'D:\Санкт Петербург жизнь и работа\
     en_words = pd.DataFrame(en_words)
     ru_words = pd.DataFrame(ru_words)
     words = en_words.join(ru_words)
-    words.to_csv(path[:len(path)-4] + '.csv')
+    words.to_csv(path[:len(path)-4] + '_1.csv', index=0)
 
 
 if __name__ == "__main__":
