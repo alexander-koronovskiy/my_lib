@@ -1,17 +1,14 @@
-import Series
-import pandas as pd
+import archive.Series as S
 
 
-class Txtseries(Series):
+class Txtseries(S):
 
     def __init__(self, parameter):
         super().__init__(parameter)
         self.data = []
 
-
     # read .txt file - this need to file path exceptions (unique method)
     # record rows in list: "data"
-
     def read(self, enc='utf-8'):
         with open(self.filename, "r", encoding=enc) as file:
             self.data = [line.split() for line in file]
