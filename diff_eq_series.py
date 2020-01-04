@@ -1,5 +1,4 @@
 import pandas as pd
-import matplotlib.pyplot as plt
 
 
 # Runge Kutta Method
@@ -37,7 +36,7 @@ def f_z(x):
     return x[0]*x[1] - 8/3*x[2]
 
 
-def lorenz():
+def attr_lorenz():
     f = [f_x, f_y, f_z]
     x = [1, 1, 0]
     hs = 0.02
@@ -45,10 +44,5 @@ def lorenz():
     for i in range(1000):
         x = rk4(x, f, 3, hs)
         res.append([x[0], x[1], x[2]])
-    res = pd.DataFrame(X)
+    res = pd.DataFrame(res)
     return res
-
-
-if __name__ == '__main__':
-    s = lorenz()
-    print(s[0])

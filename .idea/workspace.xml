@@ -3,12 +3,44 @@
   <component name="ChangeListManager">
     <list default="true" id="85863326-ebc9-407d-8b90-bfcf8b93df13" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/Genseries.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/Series.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/Txtseries.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/data.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/en_rus_correct.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/index.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Runge.py" beforeDir="false" afterPath="$PROJECT_DIR$/diff_eq_series.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/load.py" beforeDir="false" afterPath="$PROJECT_DIR$/load.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result.py" beforeDir="false" afterPath="$PROJECT_DIR$/result.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/phases/0.8_eps=0.1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/phases/0.8_eps=0.12.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/phases/0.8_eps=0.14.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/phases/0.8_eps=0.16.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/phases/0.8_eps=0.18.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/phases/0.8_eps=0.2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/phases/0.8_eps=0.24.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/phases/0.95_eps=0.1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/phases/0.95_eps=0.12.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/phases/0.95_eps=0.14.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/phases/0.95_eps=0.16.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/phases/0.95_eps=0.18.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/phases/0.95_eps=0.2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/phases/0.95_eps=0.24.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/phases/0.9_eps=0.1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/phases/0.9_eps=0.12.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/phases/0.9_eps=0.14.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/phases/0.9_eps=0.16.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/phases/0.9_eps=0.18.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/phases/0.9_eps=0.2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/phases/0.9_eps=0.24.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/phases/1.1_eps=0.1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/phases/1.1_eps=0.12.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/phases/1.1_eps=0.14.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/phases/1.1_eps=0.16.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/phases/1.1_eps=0.18.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/phases/1.1_eps=0.2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/phases/1.1_eps=0.24.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/phases/1_eps=0.1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/phases/1_eps=0.12.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/phases/1_eps=0.14.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/phases/1_eps=0.16.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/phases/1_eps=0.18.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/phases/1_eps=0.2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/phases/1_eps=0.24.dat" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,8 +53,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/load.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="780">
-              <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
+            <state relative-caret-position="1250">
+              <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -31,22 +63,25 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Runge.py">
+        <entry file="file://$PROJECT_DIR$/result.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1400">
-              <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
-              <folding>
-                <element signature="e#0#31#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="150">
+              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/result.py">
+        <entry file="file://$PROJECT_DIR$/diff_eq_series.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+            <state relative-caret-position="319">
+              <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
+              <folding>
+                <element signature="e#134#671#0" />
+                <element signature="e#987#1011#0" />
+                <element signature="e#1028#1061#0" />
+                <element signature="e#1078#1105#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -84,13 +119,18 @@
         <option value="$PROJECT_DIR$/archive/Txtseries.py" />
         <option value="$PROJECT_DIR$/load_data.py" />
         <option value="$PROJECT_DIR$/upload.py" />
-        <option value="$PROJECT_DIR$/load.py" />
-        <option value="$PROJECT_DIR$/result.py" />
         <option value="$PROJECT_DIR$/archive/square_solver.py" />
+        <option value="$PROJECT_DIR$/Runge.py" />
+        <option value="$PROJECT_DIR$/../python archive func/old_runge.py" />
+        <option value="$PROJECT_DIR$/lorenz.py" />
+        <option value="$PROJECT_DIR$/diff_eq.py" />
+        <option value="$PROJECT_DIR$/load.py" />
+        <option value="$PROJECT_DIR$/diff_eq_series.py" />
+        <option value="$PROJECT_DIR$/result.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-15" />
     <option name="y" value="-15" />
     <option name="width" value="1025" />
@@ -109,11 +149,6 @@
               <item name="useful_python_lib" type="b2602c69:ProjectViewProjectNode" />
               <item name="useful_python_lib" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="useful_python_lib" type="b2602c69:ProjectViewProjectNode" />
-              <item name="useful_python_lib" type="462c0819:PsiDirectoryNode" />
-              <item name="upload" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -122,7 +157,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Runge.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lorenz.py" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
@@ -137,8 +172,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Runge">
-    <configuration name="Runge" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.result">
+    <configuration name="diff_eq_series" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="словарик" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -150,7 +185,28 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Runge.py" />
+      <option name="SCRIPT_NAME" value="D:\Projects\useful_python_lib\diff_eq_series.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="old_runge" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="словарик" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\Alexander\Anaconda3\envs\sync\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../python archive func" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../python archive func/old_runge.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -182,7 +238,8 @@
     </configuration>
     <list>
       <item itemvalue="Python.result" />
-      <item itemvalue="Python.Runge" />
+      <item itemvalue="Python.old_runge" />
+      <item itemvalue="Python.diff_eq_series" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -207,7 +264,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.19774011" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.042372882" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.26977402" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -326,15 +383,6 @@
     <entry file="file://$PROJECT_DIR$/upload/phase drive/0.9_x_eps=0.1.dat">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://D:/магистратура/I год/sync/DiffEq.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1424">
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/archive/data.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -352,30 +400,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/result.py">
+    <entry file="file://$PROJECT_DIR$/../python archive func/Series.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        <state relative-caret-position="274">
+          <caret line="46" column="33" lean-forward="true" selection-start-line="46" selection-start-column="33" selection-end-line="46" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../python archive func/old_runge.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="66" column="19" lean-forward="true" selection-start-line="66" selection-start-column="19" selection-end-line="66" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/магистратура/I год/sync/DiffEq.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2700">
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/load.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
+        <state relative-caret-position="1250">
+          <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Runge.py">
+    <entry file="file://$PROJECT_DIR$/diff_eq_series.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1400">
-          <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
+        <state relative-caret-position="319">
+          <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
           <folding>
-            <element signature="e#0#31#0" expanded="true" />
+            <element signature="e#134#671#0" />
+            <element signature="e#987#1011#0" />
+            <element signature="e#1028#1061#0" />
+            <element signature="e#1078#1105#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/result.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>

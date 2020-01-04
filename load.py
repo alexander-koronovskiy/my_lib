@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import diff_eq_series as ds
 
 
 # use "generator=linear, x0=start, x1=end, a=,b=, points=" in () load_series
@@ -25,6 +26,7 @@ def nonlinear(x0=0, x1=10, a=1, b=0, c=0, n=3, points=100):
 SIGNALS = {
     'linear': linear,
     'nonlinear': nonlinear,
+    'lorenz': ds.attr_lorenz,
 }
 
 
