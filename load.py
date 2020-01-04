@@ -1,6 +1,20 @@
 import pandas as pd
 import numpy as np
-import diff_eq_series as ds
+
+# differential equations solutions
+from diff_module import solver
+from diff_module.lorenz_attr import *
+
+
+# use "generator=diff_sol, x=[], f=[], pt=, dx=" in () load_series
+def diff_sol(x=[1, 1, 0, 0.1, 0.1, 0.1], f=[f_x, f_y, f_z, f_u, f_v, f_w], pt=1000, dx=0.02):
+    size = len(f)
+    res = []
+    for i in range(pt):
+        x = solver.rk4(x, f, size, dx)
+        res.append([x[j] for j in range(len(x))])
+    res = pd.DataFrame(res)
+    return res
 
 
 # use "generator=linear, x0=start, x1=end, a=,b=, points=" in () load_series
@@ -26,7 +40,7 @@ def nonlinear(x0=0, x1=10, a=1, b=0, c=0, n=3, points=100):
 SIGNALS = {
     'linear': linear,
     'nonlinear': nonlinear,
-    'lorenz': ds.attr_lorenz,
+    'diff_sol': diff_sol,
 }
 
 

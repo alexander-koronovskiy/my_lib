@@ -1,6 +1,3 @@
-import pandas as pd
-
-
 # Runge Kutta Method
 def rk4(x, fx, n, hs):
     k1 = []
@@ -25,24 +22,3 @@ def rk4(x, fx, n, hs):
     for i in range(n):
         x[i] = x[i] + (k1[i] + 2*(k2[i] + k3[i]) + k4[i])/6
     return x
-
-
-# Equation System
-def f_x(x):
-    return 10*x[1] - 10*x[0]
-def f_y(x):
-    return 40*x[0] - x[0]*x[2] - x[1]
-def f_z(x):
-    return x[0]*x[1] - 8/3*x[2]
-
-
-def attr_lorenz():
-    f = [f_x, f_y, f_z]
-    x = [1, 1, 0]
-    hs = 0.02
-    res = []
-    for i in range(1000):
-        x = rk4(x, f, 3, hs)
-        res.append([x[0], x[1], x[2]])
-    res = pd.DataFrame(res)
-    return res
