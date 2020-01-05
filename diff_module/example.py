@@ -1,6 +1,5 @@
 import numpy as np
 
-
 # Equation System
 def f_x(x):
     return 2*x[0] + x[1]

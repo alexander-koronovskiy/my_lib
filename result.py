@@ -1,6 +1,13 @@
-import load
-import matplotlib.pyplot as plt
-from diff_ex import *
+'''
+методы вывода обработанных временных рядов
+сохранение получившихся датафреймов результатов файл (в отдельной директории)
+изображение при запуске, в т.ч. трехмерное
+сохранение изображений в отдельной директории
+'''
 
-s = load.load_series(generator='diff_sol', x=[0.1, 0.2, 0.7], f=[f_x, f_y, f_t], pt=1000, dx=0.001)
-plt.plot(s); plt.show()
+import load, processing
+import matplotlib.pyplot as plt
+
+s = load.load_series(generator='noised_linear', x0=2, x1=5, points=100, noise_amp=0.02)
+plt.plot(s[s.columns[0]], s[s.columns[1]]); plt.show()
+print(s)

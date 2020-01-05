@@ -1,3 +1,12 @@
+'''
+методы загрузки временного ряда по указанному пути из файла
+или генерация временного ряда на основе
+загружаемых в словарь методов, с помощью функций:
+линейной, степенной, зашумленных данных, лог.отображений,
+а также полученных на основе решений дифф.ур.
+с документацией по вызову параметров генератора
+'''
+
 import pandas as pd
 import numpy as np
 
@@ -37,10 +46,22 @@ def nonlinear(x0=0, x1=10, a=1, b=0, c=0, n=3, points=100):
     })
 
 
+def noised_linear(x0=-1, x1=1, points=100, noise_amp=0.01):
+    pure = np.linspace(x0, x1, points)
+    db = noise_amp * (x1 - x0)
+    noise = np.random.normal(0, db, pure.shape)
+    return pd.DataFrame(data={
+        'x': pure,
+        'y': pure + noise
+    })
+
+
+
 SIGNALS = {
     'linear': linear,
     'nonlinear': nonlinear,
     'diff_sol': diff_sol,
+    'noised_linear': noised_linear,
 }
 
 
