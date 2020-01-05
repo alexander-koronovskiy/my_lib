@@ -5,9 +5,10 @@
 сохранение изображений в отдельной директории
 '''
 
-import load, processing
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt, numpy as np
+import load as load, processing
 
-s = load.load_series(generator='noised_linear', x0=2, x1=5, points=100, noise_amp=0.02)
-plt.plot(s[s.columns[0]], s[s.columns[1]]); plt.show()
-print(s)
+
+x = load.load_series(generator='diff_sol')[[0, 1]]
+signal = load.load_series(generator='add_noise', df=x, amp=0.02)
+plt.plot(signal[[1]]); plt.show()
