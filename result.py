@@ -1,3 +1,5 @@
+import matplotlib.pyplot as plt, numpy as np
+import load as load, processing
 '''
 методы вывода обработанных временных рядов
 сохранение получившихся датафреймов результатов файл (в отдельной директории)
@@ -5,10 +7,22 @@
 сохранение изображений в отдельной директории
 '''
 
-import matplotlib.pyplot as plt, numpy as np
-import load as load, processing
+# загрузка сигналов
+ds = load.load_series(generator='diff_sol')
+ds.columns = ['t', 'x', 'y', 'z', 'u', 'v', 'w']
+
+series1 = load.load_series(generator='w_noise', amp=1)
+series1.columns = ['t', 'x']
+
+series2 = load.load_series(generator='harmonic', x0=0, x1=10)
+series2.columns = ['t', 'x']
 
 
-x = load.load_series(generator='diff_sol')[[0, 1]]
-signal = load.load_series(generator='add_noise', df=x, amp=0.02)
-plt.plot(signal[[1]]); plt.show()
+# пример сложения сигналов
+signal = ds[['t']].join(series1[['x']]*ds[['x']])
+
+
+# финальная обработка сигналов
+print(f'\nnumber of points: {len(signal)}\n{signal.head()}')
+plt.plot(signal[['t']], signal[['x']])
+plt.show()
