@@ -28,36 +28,36 @@ def diff_sol(x=[1, 1, 0, 0.1, 0.1, 0.1], f=[f_x, f_y, f_z, f_u, f_v, f_w], pt=10
     return t0.join(res)
 
 
-# use "generator=linear, x0=start, x1=end, a=,b=, points=" in () load_series
+# use "generator=linear, t0=start, t1=end, a=,b=, points=" in () load_series
 # returns pandas DataFrame
-def linear(x0=0, x1=10, a=1, b=0, points=1000):
-    x = np.linspace(x0, x1, points)
-    y = a*x + b
+def linear(t0=0, t1=10, a=1, b=0, points=1000):
+    t = np.linspace(t0, t1, points)
+    x = a*t + b
     return pd.DataFrame(data={
-        'x': x,
-        'y': y
+        't': t,
+        'x': x
     })
 
 
-# use "generator=nonlinear, x0=start, x1=end, a=,b=,c=,n=, points=" in () load_series
+# use "generator=nonlinear, t0=start, t1=end, a=,b=,c=,n=, points=" in () load_series
 # returns pandas DataFrame
-def nonlinear(x0=0, x1=10, a=1, b=0, c=0, n=3, points=1000):
-    x = np.linspace(x0, x1, points)
-    y = a*(x + b)**n + c
+def nonlinear(t0=0, t1=10, a=1, b=0, c=0, n=3, points=1000):
+    t = np.linspace(t0, t1, points)
+    x = a*(t + b)**n + c
     return pd.DataFrame(data={
-        'x': x,
-        'y': y
+        't': t,
+        'x': x
     })
 
 
-# use "generator=harmonic, x0=start, x1=end, a=, omega=, t0=" in () load_series
+# use "generator=harmonic, t0=start, t1=end, a=, omega=, t0=" in () load_series
 # returns pandas DataFrame
-def harmonic(x0=0, x1=10, a=1, omega=1, t0=0, points=1000):
-    x = np.linspace(x0, x1, points)
-    y = a*np.cos(omega*x + t0)
+def harmonic(t0=0, t1=10, a=1, omega=1, theta=0, points=1000):
+    t = np.linspace(t0, t1, points)
+    x = a*np.cos(omega*t + t0)
     return pd.DataFrame(data={
-        'x': x,
-        'y': y
+        't': t,
+        'x': x
     })
 
 
@@ -115,4 +115,4 @@ def load_series(path=None, generator=None, **kwargs):
     elif path is not None:
         return pd.read_csv(path, sep=' ')
     else:
-        raise RuntimeError('You should set handler!')
+        raise RuntimeError('You should set either path or generator!')

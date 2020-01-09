@@ -15,7 +15,7 @@ l_r = 'v'
 noise_series = s.load_series(generator='w_noise', amp=0.2)
 noise_series.columns = ['t', l_r]
 
-line_series = s.load_series(generator='harmonic', x0=0, x1=10)
+line_series = s.load_series(generator='harmonic', t0=0, t1=10, a=3)
 line_series.columns = ['t', l_r]
 
 
@@ -28,4 +28,6 @@ result = p.do_processing(handler='profile', df=signal)
 print(result)
 
 print(f'\nnumber of points: {len(signal)}\n{signal.head()}')
-plt.plot(signal[['t']], signal[[l_r]]); plt.show()
+plt.axis([0, 20, -20, 20])
+plt.plot(signal[['t']], signal[[l_r]])
+plt.show()

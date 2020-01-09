@@ -1,4 +1,4 @@
-import numpy as np
+import pandas as pd
 '''
 методы обработки временных рядов такие как:
 построение профиля, аппроксимация (на n - участках, a - степень)
@@ -11,9 +11,13 @@ import numpy as np
 # use "handler=profile, df=" in () do_processing
 # returns pandas DataFrame
 def do_profile(df):
-    # возврат 2й колонки датафрейма
-    # возврат профиля датафрейма в формате df
-    return df.head()
+    last_col_name = df.columns.tolist()[-1]
+    last_col = df[[last_col_name]]
+    df = df.drop(columns=last_col_name)
+
+    sr = last_col - last_col.mean()
+
+    return last_col.mean(), sr
 
 
 # use "df=, n=" in () do_processing
@@ -67,4 +71,4 @@ def do_processing(handler=None, **kwargs):
         else:
             raise RuntimeError(f'This type of generator is not supported: {type(handler)}')
     else:
-        raise RuntimeError('You should set either path or generator!')
+        raise RuntimeError('You should set handler!')
