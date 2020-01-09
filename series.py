@@ -13,6 +13,7 @@ from diff_module.lorenz_attr import *
 
 
 # use "generator=diff_sol, x=[], f=[], pt=, dx=" in () load_series
+# returns pandas DataFrame
 def diff_sol(x=[1, 1, 0, 0.1, 0.1, 0.1], f=[f_x, f_y, f_z, f_u, f_v, f_w], pt=1000, dx=0.02):
     size = len(f)
     res = []
@@ -28,6 +29,7 @@ def diff_sol(x=[1, 1, 0, 0.1, 0.1, 0.1], f=[f_x, f_y, f_z, f_u, f_v, f_w], pt=10
 
 
 # use "generator=linear, x0=start, x1=end, a=,b=, points=" in () load_series
+# returns pandas DataFrame
 def linear(x0=0, x1=10, a=1, b=0, points=1000):
     x = np.linspace(x0, x1, points)
     y = a*x + b
@@ -38,6 +40,7 @@ def linear(x0=0, x1=10, a=1, b=0, points=1000):
 
 
 # use "generator=nonlinear, x0=start, x1=end, a=,b=,c=,n=, points=" in () load_series
+# returns pandas DataFrame
 def nonlinear(x0=0, x1=10, a=1, b=0, c=0, n=3, points=1000):
     x = np.linspace(x0, x1, points)
     y = a*(x + b)**n + c
@@ -48,6 +51,7 @@ def nonlinear(x0=0, x1=10, a=1, b=0, c=0, n=3, points=1000):
 
 
 # use "generator=harmonic, x0=start, x1=end, a=, omega=, t0=" in () load_series
+# returns pandas DataFrame
 def harmonic(x0=0, x1=10, a=1, omega=1, t0=0, points=1000):
     x = np.linspace(x0, x1, points)
     y = a*np.cos(omega*x + t0)
@@ -57,7 +61,8 @@ def harmonic(x0=0, x1=10, a=1, omega=1, t0=0, points=1000):
     })
 
 
-# use "x_arr=[], r=, points=" in () load_series
+# use "generator=do_map, x_arr=[], r=, points=" in () load_series
+# returns pandas DataFrame
 def do_map(x_arr=[0.1], r=4, points=1000):
     t = np.linspace(0, points-1, points)
     for i in range(points):
@@ -72,6 +77,8 @@ def log_map(x, r):
     return r * x * (1 - x)
 
 
+# use "generator=w_noise, r=, points=" in () load_series
+# returns pandas DataFrame
 def w_noise(mean=0, std=1, amp=1, points=1000):
     t = np.linspace(0, points - 1, points)
     x_arr = amp*np.random.normal(mean, std, size=points)
@@ -108,4 +115,4 @@ def load_series(path=None, generator=None, **kwargs):
     elif path is not None:
         return pd.read_csv(path, sep=' ')
     else:
-        raise RuntimeError('You should set either path or generator!')
+        raise RuntimeError('You should set handler!')

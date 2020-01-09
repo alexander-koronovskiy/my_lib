@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt, numpy as np
-import load as load, processing
+import series as s, processing as p
 '''
 методы вывода обработанных временных рядов
 сохранение получившихся датафреймов результатов файл (в отдельной директории)
@@ -8,21 +8,24 @@ import load as load, processing
 '''
 
 # загрузка сигналов
-ds = load.load_series(generator='diff_sol')
+ds = s.load_series(generator='diff_sol')
 ds.columns = ['t', 'x', 'y', 'z', 'u', 'v', 'w']
+l_r = 'v'
 
-series1 = load.load_series(generator='w_noise', amp=1)
-series1.columns = ['t', 'x']
+noise_series = s.load_series(generator='w_noise', amp=0.2)
+noise_series.columns = ['t', l_r]
 
-series2 = load.load_series(generator='harmonic', x0=0, x1=10)
-series2.columns = ['t', 'x']
-
-
-# пример сложения сигналов
-signal = ds[['t']].join(series1[['x']]*ds[['x']])
+line_series = s.load_series(generator='harmonic', x0=0, x1=10)
+line_series.columns = ['t', l_r]
 
 
-# финальная обработка сигналов
+# пример получения сложного сигнала
+signal = ds[['t']].join(ds[[l_r]] * line_series[[l_r]] * noise_series[[l_r]])
+
+
+# пример обработки сигналов
+result = p.do_processing(handler='profile', df=signal)
+print(result)
+
 print(f'\nnumber of points: {len(signal)}\n{signal.head()}')
-plt.plot(signal[['t']], signal[['x']])
-plt.show()
+plt.plot(signal[['t']], signal[[l_r]]); plt.show()
