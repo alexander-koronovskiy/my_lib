@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 '''
 методы обработки временных рядов такие как:
 построение профиля, аппроксимация (на n - участках, a - степень)
@@ -13,11 +14,10 @@ import pandas as pd
 def do_profile(df):
     if len(df.columns) > 1:
         last_col_name = df.columns.tolist()[-1]
-        last_col = df[[last_col_name]]
+        last_col = df[last_col_name]
         sr = last_col - last_col.mean()
         df = df.drop(columns=last_col_name)
-        sr_col = [sr[0:i].sum() for i in range(len(last_col))]
-        df = df.join(pd.DataFrame(sr_col))
+        df[0] = sr.cumsum()
     return df
 
 
