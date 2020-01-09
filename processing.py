@@ -11,13 +11,8 @@ import numpy as np
 
 # use "handler=profile, df=" in () do_processing
 # returns pandas DataFrame
-def do_profile(df):
-    if len(df.columns) > 1:
-        last_col_name = df.columns.tolist()[-1]
-        last_col = df[last_col_name]
-        sr = last_col - last_col.mean()
-        df = df.drop(columns=last_col_name)
-        df[0] = sr.cumsum()
+def compute_profile(df, input_col='u', output_col='profile'):
+    df[output_col] = (df[input_col] - df[input_col].mean()).cumsum()
     return df
 
 
@@ -47,29 +42,30 @@ def dfa3():
     pass
 
 
-PROCESSING = {'profile': do_profile,
-              'approx': approx,
-              'sync_phase': sync_phase,
-              'fourier': fourier,
-              'akf': akf,
-              'dfa1': dfa1,
-              'dfa3': dfa3,
+FUNCTIONS = {
+    'profile': compute_profile,
+    'approx': approx,
+    'sync_phase': sync_phase,
+    'fourier': fourier,
+    'akf': akf,
+    'dfa1': dfa1,
+    'dfa3': dfa3,
 }
 
 
-def do_processing(handler=None, **kwargs):
-    if handler is not None:
+def process(function=None, **kwargs):
+    if function is not None:
         # handler
-        if isinstance(handler, str):
+        if isinstance(function, str):
             # get handler function and call it
-            f = PROCESSING.get(handler)
+            f = FUNCTIONS.get(function)
             if f is None:
-                raise RuntimeError(f'No such generator: {handler}')
+                raise RuntimeError(f'No such generator: {function}')
             return f(**kwargs)
-        elif callable(handler):
+        elif callable(function):
             # call handler
-            return handler(**kwargs)
+            return function(**kwargs)
         else:
-            raise RuntimeError(f'This type of generator is not supported: {type(handler)}')
+            raise RuntimeError(f'This type of generator is not supported: {type(function)}')
     else:
         raise RuntimeError('You should set handler!')

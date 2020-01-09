@@ -10,7 +10,7 @@ import series as s, processing as p
 # загрузка сигналов
 ds = s.load_series(generator='diff_sol')
 ds.columns = ['t', 'x', 'y', 'z', 'u', 'v', 'w']
-l_r = 'v'
+l_r = 'u'
 
 noise_series = s.load_series(generator='w_noise', amp=0.2)
 noise_series.columns = ['t', l_r]
@@ -20,7 +20,7 @@ line_series.columns = ['t', l_r]
 
 
 # пример обработки сигналов
-result = p.do_processing(handler='profile', df=ds)
+result = p.process(function='profile', df=ds, output_col='profile_u')
 print(result.head())
 
 plt.plot(result); plt.show()
