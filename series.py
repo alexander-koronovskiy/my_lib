@@ -54,7 +54,7 @@ def nonlinear(t0=0, t1=10, a=1, b=0, c=0, n=3, points=1000):
 # returns pandas DataFrame
 def harmonic(t0=0, t1=10, a=1, omega=1, theta=0, points=1000):
     t = np.linspace(t0, t1, points)
-    x = a*np.cos(omega*t + t0)
+    x = a*np.cos(omega*t + theta)
     return pd.DataFrame(data={
         't': t,
         'x': x

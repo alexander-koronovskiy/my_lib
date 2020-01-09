@@ -11,13 +11,14 @@ import pandas as pd
 # use "handler=profile, df=" in () do_processing
 # returns pandas DataFrame
 def do_profile(df):
-    last_col_name = df.columns.tolist()[-1]
-    last_col = df[[last_col_name]]
-    df = df.drop(columns=last_col_name)
-
-    sr = last_col - last_col.mean()
-
-    return last_col.mean(), sr
+    if len(df.columns) > 1:
+        last_col_name = df.columns.tolist()[-1]
+        last_col = df[[last_col_name]]
+        sr = last_col - last_col.mean()
+        df = df.drop(columns=last_col_name)
+        sr_col = [sr[0:i].sum() for i in range(len(last_col))]
+        df = df.join(pd.DataFrame(sr_col))
+    return df
 
 
 # use "df=, n=" in () do_processing
