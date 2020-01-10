@@ -1,26 +1,23 @@
-import matplotlib.pyplot as plt, numpy as np
+import matplotlib.pyplot as plt
 import series as s, processing as p
-'''
-методы вывода обработанных временных рядов
-сохранение получившихся датафреймов результатов файл (в отдельной директории)
-изображение при запуске, в т.ч. трехмерное
-сохранение изображений в отдельной директории
-'''
 
 # загрузка сигналов
 ds = s.load_series(generator='diff_sol')
 ds.columns = ['t', 'x', 'y', 'z', 'u', 'v', 'w']
-l_r = 'u'
-
-noise_series = s.load_series(generator='w_noise', amp=0.2)
-noise_series.columns = ['t', l_r]
-
-line_series = s.load_series(generator='linear', t0=0, t1=10)
-line_series.columns = ['t', l_r]
-
 
 # пример обработки сигналов
-result = p.process(function='profile', df=ds, output_col='profile_u')
-print(result.head())
+profile_u = p.process(function='profile',
+                      df=ds,
+                      input_col='u',
+                      output_col='profile_u')
+result = p.process(function='approx',
+                   df=profile_u,
+                   n=3,
+                   input_col='profile_u',
+                   output_col='approx_profile_u')
+p.process(function='compare_graphs',
+          df=result,
+          first_col='u',
+          second_col='profile_u')
 
-plt.plot(result); plt.show()
+plt.plot(result[['profile_u', 'approx_profile_u']]); plt.show()
