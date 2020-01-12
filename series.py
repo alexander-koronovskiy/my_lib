@@ -1,21 +1,27 @@
+"""
+pandas DataFrame time series
+
+load methods from file path or functions generator:
+linear, power func, harmonic, noise, log map
+and solution of differential equation
+"""
+
 import pandas as pd
 import numpy as np
 from diff_module import solver
-from diff_module.lorenz_attr import *
-'''
-методы загрузки временного ряда по указанному пути из файла
-или генерация временного ряда на основе
-загружаемых в словарь методов, с помощью функций:
-линейной, степенной, гармонической, шума, лог.отображений, 
-а также полученных на основе решений дифф.ур.
-с документацией по вызову параметров генератора
-'''
 
 
-# use "generator=diff_sol, u=[], f=[], pt=, dt=" in () load_series
-# returns pandas DataFrame
-# solution of diff eq f
-def diff_sol(t=[1, 1, 0, 0.1, 0.1, 0.1], f=[f_x, f_y, f_z, f_u, f_v, f_w], pt=1000, dt=0.02):
+def diff_sol(t, f, pt=1000, dt=0.02):
+    """
+    method of differential equation solution
+    use: "generator=diff_sol, :params" in () load_series
+
+    :param t: initial conditions [x0, x1,.., xn]
+    :param f: diff equations [f_1, f_2,.., f_n]
+    :param pt: points number
+    :param dt: Runge-Kutta step
+    :return: DataFrame [F_1, F_2,.., F_n] - solution of diff eq
+    """
     size = len(f)
     res = []
     t0 = []
@@ -29,10 +35,18 @@ def diff_sol(t=[1, 1, 0, 0.1, 0.1, 0.1], f=[f_x, f_y, f_z, f_u, f_v, f_w], pt=10
     return t0.join(res)
 
 
-# use "generator=linear, t0=start, t1=end, a=,b=, points=" in () load_series
-# returns pandas DataFrame ['t','u']
-# points of linear func u=a*t+b in t: (t0, t1)
 def linear(t0=0, t1=10, a=1, b=0, points=1000):
+    """
+    method of linear function build
+    use "generator=linear, :params" in () load_series
+
+    :param t0: start point
+    :param t1: end point
+    :param a: coefficient before t
+    :param b: additional coefficient
+    :param points: points number
+    :return: pandas DataFrame ['t','u'] - points of linear func u=a*t+b
+    """
     t = np.linspace(t0, t1, points)
     u = a*t + b
     return pd.DataFrame(data={
@@ -41,10 +55,20 @@ def linear(t0=0, t1=10, a=1, b=0, points=1000):
     })
 
 
-# use "generator=nonlinear, t0=start, t1=end, a=,b=,c=,n=, points=" in () load_series
-# returns pandas DataFrame ['t','u']
-# points of nonlinear func u=a*(t+b)**n+c in t:(t0, t1)
 def nonlinear(t0=0, t1=10, a=1, b=0, c=0, n=3, points=1000):
+    """
+    method of nonlinear function build
+    use "generator=nonlinear, :params" in () load_series
+
+    :param t0: start point
+    :param t1: end point
+    :param a: coefficient before t
+    :param b: additional coefficient within (a*t + b)^n
+    :param c: additional coefficient after (a*t + b)^n + c
+    :param n: polynomial power
+    :param points: points number
+    :return: pandas DataFrame ['t','u'] - nonlinear func u=a*(t+b)^n+c
+    """
     t = np.linspace(t0, t1, points)
     u = a*(t + b)**n + c
     return pd.DataFrame(data={
@@ -53,10 +77,19 @@ def nonlinear(t0=0, t1=10, a=1, b=0, c=0, n=3, points=1000):
     })
 
 
-# use "generator=harmonic, t0=start, t1=end, a=, omega=, t0=" in () load_series
-# returns pandas DataFrame ['t','u']
-# points of harmonic func u = a*cos(omega*t+theta) in interval t:(t0, t1)
 def harmonic(t0=0, t1=10, a=1, omega=1, theta=0, points=1000):
+    """
+    method of harmonic function build
+    use "generator=harmonic, :params" in () load_series
+
+    :param t0: start point
+    :param t1: end point
+    :param a: oscillation amplitude
+    :param omega: coefficient before t
+    :param theta: initial phase
+    :param points: points number
+    :return: pandas DataFrame ['t','u'] - points of harmonic func u = a*cos(omega*t+theta)
+    """
     t = np.linspace(t0, t1, points)
     u = a*np.cos(omega*t + theta)
     return pd.DataFrame(data={
@@ -65,10 +98,16 @@ def harmonic(t0=0, t1=10, a=1, omega=1, theta=0, points=1000):
     })
 
 
-# use "generator=do_map, u_arr=[], r=, points=" in () load_series
-# returns pandas DataFrame ['t','u']
-# points of logistic map with velocity param r, and init conditional u[]
 def do_map(u=[0.1], r=4, points=1000):
+    """
+    method of logistic map build
+    use "generator=do_map, :params" in () load_series
+
+    :param u: init conditional [u0]
+    :param r: with velocity param
+    :param points: points number
+    :return: pandas DataFrame ['t','u'] - points of logistic map
+    """
     t = np.linspace(0, points-1, points)
     for i in range(points):
         u.append(log_map(u[i], r))
@@ -82,10 +121,17 @@ def log_map(x, r):
     return r * x * (1 - x)
 
 
-# use "generator=w_noise, r=, points=" in () load_series
-# returns pandas DataFrame ['t','u']
-# points of white noise with amplitude - amp, mean, standard deviation - std
 def w_noise(mean=0, std=1, amp=1, points=1000):
+    """
+    method of white noise build
+    use "generator=w_noise, :params" in () load_series
+
+    :param mean: mean of series
+    :param std: standard deviation
+    :param amp: amplitude
+    :param points: points number
+    :return: pandas DataFrame ['t','u'] - points of white noise
+    """
     t = np.linspace(0, points - 1, points)
     u = amp*np.random.normal(mean, std, size=points)
     return pd.DataFrame(data={
@@ -105,6 +151,15 @@ SERIES = {
 
 
 def load_series(path=None, generator=None, **kwargs):
+    """
+    series generator from file path or function
+    from module series use series.load_series()
+
+    :param path: loading series from file
+    :param generator: function generator call
+    :param kwargs: function :params call
+    :return: pandas DataFrame loaded from function or file
+    """
     if generator is not None:
         # generation
         if isinstance(generator, str):

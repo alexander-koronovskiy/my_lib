@@ -1,37 +1,56 @@
+"""
+pandas DataFrame processing methods
+
+integration, series profile(integration without mean),
+approximation, auto-correlation function,
+detrending fluctuation analysis of multifractal time series,
+fourier analysis, synchronisation phases building
+compare graphs, 3d-graphs, df results save
+"""
+
 import numpy as np
 import matplotlib.pyplot as plt
-'''
-методы обработки временных рядов такие как:
-построение профиля, аппроксимация (на n - участках, a - степень)
-фаз синхронизации, фурье-преобразования, АКФ, фильтрации по величине
-корреляционный DFA I - датафрейм результата, и его апроксимации
-мультифрактальный спектр (DFA III) - датафрейм результата
-сохранение датафреймов файл (в отдельной директории)
-изображение дф при запуске, в т.ч. трехмерное
-сохранение изображений в отдельной директории
-'''
 
 
-# use "function=profile, df=, input_col=, output_col=" in () do_processing
-# returns extended pandas DataFrame
-# integration of the input_col on output_col
 def integrate(df, input_col='u', output_col='profile_u'):
+    """
+    integration time series method
+    use "function=integrate, :params" in () process
+
+    :param df: DataFrame with time series for integration
+    :param input_col: time series column for integration
+    :param output_col: integrated time series column
+    :return: DataFrame with integrated time series column
+    """
     df[output_col] = (df[input_col]).cumsum()
     return df
 
 
-# use "function=profile, df=, input_col=, output_col=" in () do_processing
-# returns extended pandas DataFrame
-# integration without mean of the input_col on output_col
 def compute_profile(df, input_col='u', output_col='profile_u'):
+    """
+    integration without mean time series method
+    use "function=compute_profile, :params" in () process
+
+    :param df: DataFrame with time series for integration without mean
+    :param input_col: time series column for integration without mean
+    :param output_col: integrated time series column without mean
+    :return: DataFrame with integrated without mean time series column
+    """
     df[output_col] = (df[input_col] - df[input_col].mean()).cumsum()
     return df
 
 
-# use "function=approx, df=, n=, input_col=, output_col=" in () do_processing
-# returns extended pandas DataFrame
-# n-order approximation of the input_col on output_col
 def approx(df, n=1, input_col='u', output_col='approx_u'):
+    """
+    approximation time series method
+    use "function=approx, :params" in () process
+
+    :param df: DataFrame with time series for approximation
+    :param n: order of approximation
+    :param input_col: time series column for approximation
+    :param output_col: approximated time series column
+    :return: DataFrame with approximated time series column
+    """
     t = np.linspace(0.1, 10, len(df[input_col]))
     p = np.polyfit(t, df[input_col], n)
     df[output_col] = np.polyval(p, t)
@@ -58,9 +77,18 @@ def fourier():
     pass
 
 
-# use "function=compare_graphs, first_col=, second_col=" in () do_processing
-# compare 2 plots in one fig: of the one column in dataframe and another
 def compare_graphs(df, first_col, second_col, title1='in', title2='out'):
+    """
+    two graphics compare method
+    use "function=compare_graphs, :params" in () process
+
+    :param df: DataFrame with considered time series
+    :param first_col: first time series
+    :param second_col: second time series, for example - processed by func
+    :param title1: first graphic title
+    :param title2: second graphic title
+    :return: a two graphics in one figure
+    """
     f, a = plt.subplots(1, 2)
     a[0].plot(df[first_col])
     a[0].set_title(title1)
@@ -83,6 +111,14 @@ FUNCTIONS = {
 
 
 def process(function=None, **kwargs):
+    """
+    series handler
+    from module series use series.load_series()
+
+    :param function: processing function call
+    :param kwargs: function :params call
+    :return: pandas DataFrame processed by :function
+    """
     if function is not None:
         # handler
         if isinstance(function, str):
