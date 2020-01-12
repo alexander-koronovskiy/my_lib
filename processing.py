@@ -8,6 +8,7 @@ fourier analysis, synchronisation phases building
 compare graphs, 3d-graphs, df results save
 """
 
+import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -22,7 +23,7 @@ def integrate(df, input_col='u', output_col='profile_u'):
     :param output_col: integrated time series column
     :return: DataFrame with integrated time series column
     """
-    df[output_col] = (df[input_col]).cumsum()
+    df[output_col] = df[input_col].cumsum()
     return df
 
 
@@ -57,8 +58,20 @@ def approx(df, n=1, input_col='u', output_col='approx_u'):
     return df
 
 
-def akf():
-    pass
+def akf(df, lags=15, input_col='u', output_col='akf_u'):
+    """
+    auto-correlation function
+    use "function=akf, :params" in () process
+
+    :param df: DataFrame with time series for auto-correlation function build
+    :param lags: precision for auto-correlation function build; lags < time series length
+    :param input_col: time series column for auto-correlation function build
+    :param output_col: auto-correlation function series
+    :return: DataFrame with auto-correlation function series
+    """
+    corr = [1. if l == 0 else np.corrcoef(df[input_col][l:], df[input_col][:-l])[0][1] for l in range(lags)]
+    df = df.combine_first(pd.DataFrame(corr, columns=[output_col]))
+    return df
 
 
 def dfa1():

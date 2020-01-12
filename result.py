@@ -16,18 +16,13 @@ profile_u = p.process(function='profile',
                       input_col='u',
                       output_col='profile_u')
 
-result = p.process(function='approx',
+result = p.process(function='akf',
                    df=profile_u,
-                   n=3,
-                   input_col='profile_u',
-                   output_col='approx_profile_u')
+                   lags=800,
+                   input_col='u',
+                   output_col='akf_u')
 
 p.process(function='compare_graphs',
           df=result,
           first_col='u',
-          second_col='profile_u')
-
-# test docstrings
-print(s.__doc__)
-print(s.diff_sol.__doc__)
-print(p.compute_profile.__doc__)
+          second_col='akf_u')
