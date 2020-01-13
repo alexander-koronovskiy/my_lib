@@ -10,18 +10,23 @@ ds = s.load_series(generator='diff_sol',
 
 ds.columns = ['t', 'x', 'y', 'z', 'u', 'v', 'w']
 
+s_noise = s.load_series(generator='w_noise')
+signal = ds[['t']].join(s_noise[['u']]*ds[['u']])
+
 # series processing
 profile_u = p.process(function='profile',
-                      df=ds,
+                      df=signal,
                       input_col='u',
-                      output_col='profile_u')
+                      output_col='profile')
 
-result = p.process(function='akf',
-                   df=profile_u,
-                   lags=50,
-                   input_col='u',
-                   output_col='akf_u')
+dfa1 = p.process(function='dfa1',
+                 df=profile_u,
+                 input_col='profile',
+                 lags_col='dfa_lags',
+                 dfa_col='dfa')
 
-p.process(function='dfa1',
-          df=profile_u,
-          input_col='u')
+p.process(function='compare_graphics',
+          df=dfa1,
+          first_col='profile',
+          second_col='dfa_lags',
+          third_col='dfa')

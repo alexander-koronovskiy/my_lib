@@ -17,14 +17,18 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/processing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="344">
-              <caret line="86" column="16" lean-forward="true" selection-start-line="86" selection-start-column="16" selection-end-line="86" selection-end-column="16" />
+            <state relative-caret-position="232">
+              <caret line="97" column="25" selection-start-line="97" selection-start-column="25" selection-end-line="97" selection-end-column="25" />
               <folding>
                 <element signature="e#0#47#1" />
                 <element signature="e#568#630#0" />
                 <element signature="e#921#999#0" />
-                <element signature="e#1508#1644#0" />
                 <element signature="e#2010#2196#0" />
+                <element signature="e#1147#1151#0" />
+                <element signature="e#1561#1565#0" />
+                <element signature="e#1587#1591#0" />
+                <element signature="e#3735#4125#1" />
+                <element signature="e#2908#3470#0" />
               </folding>
             </state>
           </provider>
@@ -33,7 +37,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://D:/магистратура/I год/задача_курсовая/DFA.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-50">
+            <state relative-caret-position="-200">
               <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
@@ -42,8 +46,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/result.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+            <state relative-caret-position="-45">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -227,7 +231,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.19774011" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.30508474" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.22033899" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997175" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -424,15 +428,15 @@
     </entry>
     <entry file="file://D:/магистратура/I год/задача_курсовая/DFA.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-50">
+        <state relative-caret-position="-200">
           <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/result.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+        <state relative-caret-position="-45">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
@@ -441,14 +445,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/processing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="86" column="16" lean-forward="true" selection-start-line="86" selection-start-column="16" selection-end-line="86" selection-end-column="16" />
+        <state relative-caret-position="232">
+          <caret line="97" column="25" selection-start-line="97" selection-start-column="25" selection-end-line="97" selection-end-column="25" />
           <folding>
             <element signature="e#0#47#1" />
             <element signature="e#568#630#0" />
             <element signature="e#921#999#0" />
-            <element signature="e#1508#1644#0" />
             <element signature="e#2010#2196#0" />
+            <element signature="e#1147#1151#0" />
+            <element signature="e#1561#1565#0" />
+            <element signature="e#1587#1591#0" />
+            <element signature="e#3735#4125#1" />
+            <element signature="e#2908#3470#0" />
           </folding>
         </state>
       </provider>

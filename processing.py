@@ -52,7 +52,7 @@ def approx(df, n=1, input_col='u', output_col='approx_u'):
     :param output_col: approximated time series column
     :return: DataFrame with approximated time series column
     """
-    t = np.linspace(0.1, 10, len(df[input_col]))
+    t = np.linspace(0, 10, len(df[input_col]))
     p = np.polyfit(t, df[input_col], n)
     df[output_col] = np.polyval(p, t)
     return df
@@ -74,28 +74,27 @@ def akf(df, lags=15, input_col='u', output_col='akf_u'):
     return df
 
 
-def dfa1(df, input_col='u', lags=10, n=0, output_col='approx_u'):
-    # chunk the column
-    chuncks = np.array_split(df[input_col], lags)
-    # p = [np.std(chuncks[j]) for j in range(len(chuncks))]
+def dfa1(df, input_col='u', n=1, l_lags=[5, 10, 20, 50, 100, 200], lags_col='dfa_lags_u', dfa_col='dfa_res_u'):
+    f_res = []
+    for i in l_lags:
+        # chunk the column
+        chuncks = np.array_split(df[input_col], i)
 
-    # approximation
-    t = [np.linspace(0.1, 10, len(chuncks[j])) for j in range(len(chuncks))]
-    p = [np.polyfit(t[j], chuncks[j], n) for j in range(len(t))]
-    approx_chunks = [np.polyval(p[j], t[j]) for j in range(len(t))]
+        # approximation chunks
+        t = [np.linspace(0.1, 10, len(chuncks[j])) for j in range(len(chuncks))]
+        p = [np.polyfit(t[j], chuncks[j], n) for j in range(len(t))]
+        approx_chunks = [np.polyval(p[j], t[j]) for j in range(len(t))]
 
-    # detrending
-    approx = []
-    for lst in approx_chunks:
-        approx.extend(lst)
-    print(sum(np.sqrt((df[input_col] - np.array(approx))**2))/len(df[input_col]))
-    print(np.std(df[input_col]))  # it means 0-degree approximation, but not
+        # detrending
+        approx = []
+        for lst in approx_chunks:
+            approx.extend(lst)
+        f_res.append(sum(np.sqrt((df[input_col] - np.array(approx))**2))/len(df[input_col]))
 
-    # visualisation
-    plt.plot(approx)
-    plt.plot(df[input_col])
-    plt.show()
-
+    dfa_l = pd.DataFrame(np.log2(np.array(len(df[input_col])) / l_lags), columns=['dfa_lags'])
+    dfa_r = pd.DataFrame(np.log2(f_res), columns=['dfa_res'])
+    df[lags_col] = dfa_l
+    df[dfa_col] = dfa_r
     return df
 
 
@@ -111,7 +110,7 @@ def fourier():
     pass
 
 
-def compare_graphs(df, first_col, second_col, title1='in', title2='out'):
+def compare_graphics(df, first_col, second_col, third_col, title1='in', title2='out'):
     """
     two graphics compare method
     use "function=compare_graphs, :params" in () process
@@ -126,7 +125,7 @@ def compare_graphs(df, first_col, second_col, title1='in', title2='out'):
     f, a = plt.subplots(1, 2)
     a[0].plot(df[first_col])
     a[0].set_title(title1)
-    a[1].plot(df[second_col])
+    a[1].plot(df[second_col], df[third_col])
     a[1].set_title(title2)
     plt.show()
 
@@ -140,7 +139,7 @@ FUNCTIONS = {
     'dfa3': dfa3,
     'sync_phase': sync_phase,
     'fourier': fourier,
-    'compare_graphs': compare_graphs,
+    'compare_graphics': compare_graphics,
 }
 
 
