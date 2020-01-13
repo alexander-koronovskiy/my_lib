@@ -18,11 +18,10 @@ profile_u = p.process(function='profile',
 
 result = p.process(function='akf',
                    df=profile_u,
-                   lags=800,
+                   lags=50,
                    input_col='u',
                    output_col='akf_u')
 
-p.process(function='compare_graphs',
-          df=result,
-          first_col='u',
-          second_col='akf_u')
+p.process(function='dfa1',
+          df=profile_u,
+          input_col='u')

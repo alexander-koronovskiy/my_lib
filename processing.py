@@ -2,7 +2,7 @@
 pandas DataFrame processing methods
 
 integration, series profile(integration without mean),
-approximation, auto-correlation function,
+approximation, auto-correlation function, correlation function,
 detrending fluctuation analysis of multifractal time series,
 fourier analysis, synchronisation phases building
 compare graphs, 3d-graphs, df results save
@@ -74,8 +74,29 @@ def akf(df, lags=15, input_col='u', output_col='akf_u'):
     return df
 
 
-def dfa1():
-    pass
+def dfa1(df, input_col='u', lags=10, n=0, output_col='approx_u'):
+    # chunk the column
+    chuncks = np.array_split(df[input_col], lags)
+    # p = [np.std(chuncks[j]) for j in range(len(chuncks))]
+
+    # approximation
+    t = [np.linspace(0.1, 10, len(chuncks[j])) for j in range(len(chuncks))]
+    p = [np.polyfit(t[j], chuncks[j], n) for j in range(len(t))]
+    approx_chunks = [np.polyval(p[j], t[j]) for j in range(len(t))]
+
+    # detrending
+    approx = []
+    for lst in approx_chunks:
+        approx.extend(lst)
+    print(sum(np.sqrt((df[input_col] - np.array(approx))**2))/len(df[input_col]))
+    print(np.std(df[input_col]))  # it means 0-degree approximation, but not
+
+    # visualisation
+    plt.plot(approx)
+    plt.plot(df[input_col])
+    plt.show()
+
+    return df
 
 
 def dfa3():
