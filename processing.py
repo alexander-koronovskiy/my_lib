@@ -74,7 +74,7 @@ def akf(df, lags=15, input_col='u', output_col='akf'):
     return df
 
 
-def dfa1(df, input_col='u', n=1, l_lags=[5, 10, 20, 50, 100, 200], lags_col='output_lags', dfa_col='output_res'):
+def dfa1(df, input_col='u', q=1, l_lags=[5, 10, 20, 50, 100, 200], lags_col='output_lags', dfa_col='output_res'):
     f_res = []
     for i in l_lags:
         # chunk the column
@@ -82,7 +82,7 @@ def dfa1(df, input_col='u', n=1, l_lags=[5, 10, 20, 50, 100, 200], lags_col='out
 
         # approximation chunks; if n < 0 df[input_col]**(-1) ??
         t = [np.linspace(0.1, 10, len(chuncks[j])) for j in range(len(chuncks))]
-        p = [np.polyfit(t[j], chuncks[j], n) for j in range(len(t))]
+        p = [np.polyfit(t[j], chuncks[j], q) for j in range(len(t))]
         approx_chunks = [np.polyval(p[j], t[j]) for j in range(len(t))]
 
         # detrending
@@ -91,8 +91,8 @@ def dfa1(df, input_col='u', n=1, l_lags=[5, 10, 20, 50, 100, 200], lags_col='out
             approx.extend(lst)
         f_res.append(sum(np.sqrt((df[input_col] - np.array(approx))**2))/len(df[input_col]))
 
-    dfa_l = pd.DataFrame(np.log2(np.array(len(df[input_col])) / l_lags), columns=['dfa_lags'])
-    dfa_r = pd.DataFrame(np.log2(f_res), columns=['dfa_res'])
+    dfa_l = pd.DataFrame(np.log10(np.array(len(df[input_col])) / l_lags), columns=['dfa_lags'])
+    dfa_r = pd.DataFrame(np.log10(f_res), columns=['dfa_res'])
     df[lags_col] = dfa_l
     df[dfa_col] = dfa_r
     return df
@@ -110,7 +110,8 @@ def fourier():
     pass
 
 
-def compare_graphics(df, orig_col, profile_col, dfa_l_col, dfa_f_col, title1='in', title2='out'):
+def compare_graphics(df, orig_col, profile_col, dfa_l_col, dfa_f_col,
+                     title0='origin series', title1='profile', title2='dfa_q'):
     """
     two graphics compare method
     use "function='compare_graphics', :params" in () process
@@ -119,19 +120,27 @@ def compare_graphics(df, orig_col, profile_col, dfa_l_col, dfa_f_col, title1='in
     :param orig_col: initial time series from file or gen function
     :param profile_col: computed profile for init time series
     :param dfa_l_col: lg2 time window for dfa graphics
-    :param dfa_l_col: lg2 dfa function value for dfa graphics
-    :param title1: first graphic title
-    :param title2: second graphic title
+    :param dfa_f_col: lg2 dfa function value for dfa graphics [] for q > 0
+    :param title0: title for origin series
+    :param title1: origin series profile
+    :param title2: detrending fluctuation analysis for origin series
     :return: a two graphics in one figure
     """
-    f, a = plt.subplots(1, 3, figsize=(12, 4))
-    a[0].plot(df[profile_col])
+    f, a = plt.subplots(nrows=1, ncols=3, figsize=(15, 5))
 
-    a[1].plot(df[[orig_col]])
+    a[0].plot(df[orig_col])
+    a[0].set_title(title0)
+
+    a[1].plot(df[[profile_col]])
     a[1].set_title(title1)
 
-    a[2].plot(df[dfa_l_col], df[dfa_f_col])
+    [a[2].plot(df[dfa_l_col], df[dfa_f_col[i]]) for i in range(len(dfa_f_col))]
+    a[2].legend(dfa_f_col, loc="best")
     a[2].set_title(title2)
+
+    # f.text(0.78, 0.04, 'time window, $lgL$', ha='center', va='center')
+    # f.text(0.645, 0.5, 'de-trending function, $lgF$', ha='center', va='center', rotation='vertical')
+
     plt.show()
 
 
