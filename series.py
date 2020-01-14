@@ -14,7 +14,7 @@ from diff_module import solver
 def diff_sol(t, f, pt=1000, dt=0.02):
     """
     method of differential equation solution
-    use: "generator=diff_sol, :params" in () load_series
+    use: "generator='diff_sol', :params" in () load_series
 
     :param t: initial conditions [x0, x1,.., xn]
     :param f: diff equations [f_1, f_2,.., f_n]
@@ -38,7 +38,7 @@ def diff_sol(t, f, pt=1000, dt=0.02):
 def linear(t0=0, t1=10, a=1, b=0, points=1000):
     """
     method of linear function build
-    use "generator=linear, :params" in () load_series
+    use "generator='linear', :params" in () load_series
 
     :param t0: start point
     :param t1: end point
@@ -58,7 +58,7 @@ def linear(t0=0, t1=10, a=1, b=0, points=1000):
 def nonlinear(t0=0, t1=10, a=1, b=0, c=0, n=3, points=1000):
     """
     method of nonlinear function build
-    use "generator=nonlinear, :params" in () load_series
+    use "generator='nonlinear', :params" in () load_series
 
     :param t0: start point
     :param t1: end point
@@ -80,7 +80,7 @@ def nonlinear(t0=0, t1=10, a=1, b=0, c=0, n=3, points=1000):
 def harmonic(t0=0, t1=10, a=1, omega=1, theta=0, points=1000):
     """
     method of harmonic function build
-    use "generator=harmonic, :params" in () load_series
+    use "generator='harmonic', :params" in () load_series
 
     :param t0: start point
     :param t1: end point
@@ -101,7 +101,7 @@ def harmonic(t0=0, t1=10, a=1, omega=1, theta=0, points=1000):
 def do_map(u=[0.1], r=4, points=1000):
     """
     method of logistic map build
-    use "generator=do_map, :params" in () load_series
+    use "generator='do_map', :params" in () load_series
 
     :param u: init conditional [u0]
     :param r: with velocity param
@@ -124,7 +124,7 @@ def log_map(x, r):
 def w_noise(mean=0, std=1, amp=1, points=1000):
     """
     method of white noise build
-    use "generator=w_noise, :params" in () load_series
+    use "generator='w_noise', :params" in () load_series
 
     :param mean: mean of series
     :param std: standard deviation
@@ -174,6 +174,9 @@ def load_series(path=None, generator=None, **kwargs):
         else:
             raise RuntimeError(f'This type of generator is not supported: {type(generator)}')
     elif path is not None:
-        return pd.read_csv(path, sep=' ')
+        with open(path) as file:
+            data = pd.DataFrame([line.split() for line in file], dtype='float64')
+        return data
+        # pd.read_csv(path, sep=' ')
     else:
         raise RuntimeError('You should set either path or generator!')
