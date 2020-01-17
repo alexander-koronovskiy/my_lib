@@ -7,8 +7,12 @@ import os
 
 # access for all time series in the folder
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-s_files = os.listdir(BASE_DIR + '/neph_filtr')
-series = s.load_series(path=BASE_DIR + '/neph_filtr/' + s_files[10])
+folder = '/neph_filtr'
+s_files = os.listdir(BASE_DIR + folder)
+
+# access for origin file
+series = s.load_series(path=BASE_DIR + folder + '/' + s_files[1])
+series_name = s_files[1][:-4]
 
 # series processing
 series.columns = ['u']
@@ -27,9 +31,11 @@ for i in arr_q:
                        dfa_col='q=' + str(i),
                        lags_col='lags')
 
-p.process(function='compare_graphics',
+# visualisation
+p.process(function='save_dfa_graphics',
           df=series,
           orig_col='u',
           profile_col='profile',
           dfa_l_col='lags',
-          dfa_f_col=['q='+str(j) for j in arr_q])
+          dfa_f_col=['q='+str(j) for j in arr_q],
+          series_name=series_name)

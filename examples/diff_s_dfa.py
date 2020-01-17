@@ -29,9 +29,10 @@ for i in arr_q:
                        lags_col='lags')
 
 # visualisation
-p.process(function='compare_graphics',
+p.process(function='save_dfa_graphics',
           df=series,
           orig_col='u',
           profile_col='profile',
           dfa_l_col='lags',
-          dfa_f_col=['q='+str(j) for j in arr_q])
+          dfa_f_col=['q='+str(j) for j in arr_q],
+          series_name='diff_sol')

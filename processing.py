@@ -11,6 +11,7 @@ compare graphs, 3d-graphs, df results save
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+from pylab import figure, plot, xlabel, grid, legend, title, savefig
 
 
 def integrate(df, input_col='u', output_col='integrate'):
@@ -75,12 +76,24 @@ def akf(df, lags=15, input_col='u', output_col='akf'):
 
 
 def dfa1(df, input_col='u', q=1, l_lags=[5, 10, 20, 50, 100, 200], lags_col='output_lags', dfa_col='output_res'):
+    """
+    De-trending fluctuation analysis - is one of the nonlinear dynamics methods
+    for time series correlation analysis
+
+    :param df: DataFrame with integrated without mean function, named as "profile"
+    :param input_col: time series prepared for dfa-processing
+    :param q: approximation order for dfa-processing
+    :param l_lags: parts for dividing time series
+    :param lags_col: "time window" sizes in log10 scale
+    :param dfa_col: result function value in log10 scale
+    :return: DataFrames with built dfa
+    """
     f_res = []
     for i in l_lags:
         # chunk the column
         chuncks = np.array_split(df[input_col], i)
 
-        # approximation chunks; if n < 0 df[input_col]**(-1) ??
+        # approximation chunks;
         t = [np.linspace(0.1, 10, len(chuncks[j])) for j in range(len(chuncks))]
         p = [np.polyfit(t[j], chuncks[j], q) for j in range(len(t))]
         approx_chunks = [np.polyval(p[j], t[j]) for j in range(len(t))]
@@ -110,8 +123,8 @@ def fourier():
     pass
 
 
-def compare_graphics(df, orig_col, profile_col, dfa_l_col, dfa_f_col,
-                     title0='origin series', title1='profile', title2='dfa_q'):
+def save_dfa_graphics(df, orig_col, profile_col, dfa_l_col, dfa_f_col, series_name='series',
+                      title0='origin series', title1='profile', title2='dfa_q'):
     """
     two graphics compare method
     use "function='compare_graphics', :params" in () process
@@ -121,17 +134,18 @@ def compare_graphics(df, orig_col, profile_col, dfa_l_col, dfa_f_col,
     :param profile_col: computed profile for init time series
     :param dfa_l_col: lg2 time window for dfa graphics
     :param dfa_f_col: lg2 dfa function value for dfa graphics [] for q > 0
+    :param series_name: save result pic as "pic_name"
     :param title0: title for origin series
     :param title1: origin series profile
     :param title2: detrending fluctuation analysis for origin series
-    :return: a two graphics in one figure
+    :return: saved result graphics in figure
     """
     f, a = plt.subplots(nrows=1, ncols=3, figsize=(15, 5))
 
     a[0].plot(df[orig_col])
     a[0].set_title(title0)
 
-    a[1].plot(df[[profile_col]])
+    a[1].plot(df[profile_col])
     a[1].set_title(title1)
 
     [a[2].plot(df[dfa_l_col], df[dfa_f_col[i]]) for i in range(len(dfa_f_col))]
@@ -140,8 +154,17 @@ def compare_graphics(df, orig_col, profile_col, dfa_l_col, dfa_f_col,
 
     # f.text(0.78, 0.04, 'time window, $lgL$', ha='center', va='center')
     # f.text(0.645, 0.5, 'de-trending function, $lgF$', ha='center', va='center', rotation='vertical')
+    savefig(series_name, dpi=100)
+    plt.clf()
 
-    plt.show()
+
+def save_df(df, series_name):
+    """
+    :param df: DataFrame with considered time series
+    :param series_name: save result pic as "data frame name"
+    :return: saved data frame result
+    """
+    df.to_csv(series_name + '.txt', sep=' ', index=0)
 
 
 FUNCTIONS = {
@@ -153,7 +176,8 @@ FUNCTIONS = {
     'dfa3': dfa3,
     'sync_phase': sync_phase,
     'fourier': fourier,
-    'compare_graphics': compare_graphics,
+    'save_dfa_graphics': save_dfa_graphics,
+    'save_df': save_df,
 }
 
 
