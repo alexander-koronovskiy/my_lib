@@ -121,7 +121,9 @@ def log_map(x, r):
     return r * x * (1 - x)
 
 
-def w_noise(mean=0, std=1, amp=1, points=1000):
+# ================================ noised series ============================== #
+
+def w_noised(mean=0, std=1, amp=1, points=1000):
     """
     method of white noise build
     use "generator='w_noise', :params" in () load_series
@@ -145,7 +147,7 @@ SERIES = {
     'nonlinear': nonlinear,
     'harmonic': harmonic,
     'do_map': do_map,
-    'w_noise': w_noise,
+    'w_noised': w_noised,
     'diff_sol': diff_sol,
 }
 
