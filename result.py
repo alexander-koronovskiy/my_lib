@@ -1,23 +1,34 @@
+import pandas as pd
 import random
 import matplotlib.pyplot as plt
 
 
-def smoother(noise, type='red'):
-    output = []
-    for i in range(len(noise) - 1):
+def noise_gen(amp=1, type='white', pt=1000):
+    def smoother(noise):
         if type == 'red':
-            output.append(0.5 * (noise[i] + noise[i+1]))
-        if type == 'purple':
-            output.append(0.5 * (noise[i] + noise[i + 1]))
+            output = [0.5 * (noise[i] + noise[i + 1]) for i in range(len(noise) - 1)]
+        elif type == 'purple':
+            output = [0.5 * (noise[i] - noise[i + 1]) for i in range(len(noise) - 1)]
         else:
-            output.append(noise[i])
-    return output
+            output = noise
+        return output
+
+    t = [i for i in range(pt - 1)]
+    noise = [random.uniform(-amp, +amp) for i in range(pt)]
+    white = noise
+    print(type)
+    return pd.DataFrame(data={
+        't': t,
+        'u': smoother(noise)
+    })
 
 
-noise = [random.uniform(-1, +1) for i in range(100)]
+df2 = noise_gen(1, 'red')
+df3 = noise_gen(1, 'purple')
 
-white = noise
-red = smoother(noise, 'red')
+df = df2.append(df3)\
+    .reset_index()\
+    .drop(columns=['t', 'index'])
 
-plt.plot(red)
+plt.plot(df)
 plt.show()
