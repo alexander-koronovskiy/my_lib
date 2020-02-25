@@ -1,5 +1,6 @@
 import series as s
 import processing as p
+import numpy as np
 import matplotlib.pyplot as plt
 
 # test signal
@@ -12,9 +13,17 @@ df = df2.append(df3)\
 
 # processing
 df = p.process(function='compute_profile', df=df)
-res = p.process(function='dfa1', df=df, input_col='profile', q=3)
+
+for i in range(5):
+    df = p.process(function='dfa1', df=df, input_col='profile', q=i, l_lags=[3, 10, 30, 100, 300],
+                   dfa_col='dfa_'+str(i), ext_col='dfa_ext_'+str(i))
+
+alpha = np.polyfit(df['output_lags'][:5], df['dfa_1'][:5], 1)[0]
+print(alpha)
 
 # visualisation
-plt.plot(res['output_lags'], res['output_dfa'],
-         res['output_lags'], res['output_dfa_ext'])
+plt.plot(df['output_lags'], df['dfa_1'],
+         df['output_lags'], df['dfa_2'],
+         df['output_lags'], df['dfa_3'],
+         df['output_lags'], df['dfa_4'])
 plt.show()
