@@ -8,6 +8,7 @@ and solution of differential equation
 
 import pandas as pd
 import numpy as np
+import random
 from diff_module import solver
 
 
@@ -121,24 +122,30 @@ def log_map(x, r):
     return r * x * (1 - x)
 
 
-# ================================ noised series ============================== #
-
-def w_noised(mean=0, std=1, amp=1, points=1000):
+def noise_gen(amp=1, type='white', pt=1000):
     """
-    method of white noise build
-    use "generator='w_noise', :params" in () load_series
+    method of noise series generation
+    use "generator='harmonic', :params" in () load_series
 
-    :param mean: mean of series
-    :param std: standard deviation
-    :param amp: amplitude
-    :param points: points number
-    :return: pandas DataFrame ['t','u'] - points of white noise
+    :param amp: series amplitude
+    :param type: different types of noise series - white, red, purple
+    :param pt: points number
+    :return: pandas DataFrame ['t','u'] - noise series
     """
-    t = np.linspace(0, points - 1, points)
-    u = amp*np.random.normal(mean, std, size=points)
+    def smoother(noise):
+        if type == 'red':
+            output = [0.5 * (noise[i] + noise[i + 1]) for i in range(len(noise) - 1)]
+        elif type == 'purple':
+            output = [0.5 * (noise[i] - noise[i + 1]) for i in range(len(noise) - 1)]
+        else:
+            output = noise[:-1]
+        return output
+
+    t = [i for i in range(pt - 1)]
+    noise = [random.uniform(-amp, +amp) for i in range(pt)]
     return pd.DataFrame(data={
         't': t,
-        'u': u
+        'u': smoother(noise)
     })
 
 
@@ -147,7 +154,7 @@ SERIES = {
     'nonlinear': nonlinear,
     'harmonic': harmonic,
     'do_map': do_map,
-    'w_noised': w_noised,
+    'noise_gen': noise_gen,
     'diff_sol': diff_sol,
 }
 

@@ -75,7 +75,8 @@ def akf(df, lags=15, input_col='u', output_col='akf'):
     return df
 
 
-def dfa1(df, input_col='u', q=1, l_lags=[5, 10, 20, 50, 100, 200], lags_col='output_lags', dfa_col='output_res'):
+def dfa1(df, input_col='u', q=1, l_lags=[5, 10, 20, 50, 100, 200],
+         lags_col='output_lags', dfa_col='output_dfa', ext_col='output_dfa_ext'):
     """
     De-trending fluctuation analysis - is one of the nonlinear dynamics methods
     for time series correlation analysis
@@ -89,30 +90,35 @@ def dfa1(df, input_col='u', q=1, l_lags=[5, 10, 20, 50, 100, 200], lags_col='out
     :return: DataFrames with built dfa
     """
     f_res = []
+    ext_df = []
+
     for i in l_lags:
         # chunk the column
-        chuncks = np.array_split(df[input_col], i)
+        chunks = np.array_split(df[input_col], i)
 
         # approximation chunks;
-        t = [np.linspace(0.1, 10, len(chuncks[j])) for j in range(len(chuncks))]
-        p = [np.polyfit(t[j], chuncks[j], q) for j in range(len(t))]
+        t = [np.linspace(0.1, 10, len(chunks[j])) for j in range(len(chunks))]
+        p = [np.polyfit(t[j], chunks[j], q) for j in range(len(t))]
         approx_chunks = [np.polyval(p[j], t[j]) for j in range(len(t))]
 
-        # detrending
+        # extended dfa calculation named as 'ext_col'
+        ext_df.append(sum(
+            [max(np.sqrt((approx_chunks[i] - chunks[i])**2))
+             - min(np.sqrt((approx_chunks[i] - chunks[i])**2))
+                for i in range(len(approx_chunks))]
+        ) / len(approx_chunks))
+
+        # de-trending
         approx = []
         for lst in approx_chunks:
             approx.extend(lst)
         f_res.append(sum(np.sqrt((df[input_col] - np.array(approx))**2))/len(df[input_col]))
 
-    dfa_l = pd.DataFrame(np.log10(np.array(len(df[input_col])) / l_lags), columns=['dfa_lags'])
-    dfa_r = pd.DataFrame(np.log10(f_res), columns=['dfa_res'])
-    df[lags_col] = dfa_l
-    df[dfa_col] = dfa_r
+    df[lags_col] = pd.DataFrame(np.log10(np.array(len(df[input_col])) / l_lags))
+    df[dfa_col] = pd.DataFrame(np.log10(f_res))
+    df[ext_col] = pd.DataFrame(np.log10(ext_df))
+
     return df
-
-
-def dfa3():
-    pass
 
 
 def sync_phase():
@@ -173,7 +179,6 @@ FUNCTIONS = {
     'approx': approx,
     'akf': akf,
     'dfa1': dfa1,
-    'dfa3': dfa3,
     'sync_phase': sync_phase,
     'fourier': fourier,
     'save_dfa_graphics': save_dfa_graphics,
