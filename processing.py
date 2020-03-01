@@ -11,7 +11,6 @@ compare graphs, 3d-graphs, df results save
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-from pylab import figure, plot, xlabel, grid, legend, title, savefig
 
 
 def integrate(df, input_col='u', output_col='integrate'):
@@ -112,11 +111,14 @@ def dfa1(df, input_col='u', q=1, l_lags=[5, 10, 20, 50, 100, 200],
         approx = []
         for lst in approx_chunks:
             approx.extend(lst)
-        f_res.append(sum(np.sqrt((df[input_col] - np.array(approx))**2))/len(df[input_col]))
+        f_res.append(sum(
+            np.sqrt(
+                (df[input_col] - np.array(approx))**2)
+        )/len(df[input_col]))
 
-    df[lags_col] = pd.DataFrame(np.log10(np.array(len(df[input_col])) / l_lags))
-    df[dfa_col] = pd.DataFrame(np.log10(f_res))
-    df[ext_col] = pd.DataFrame(np.log10(ext_df))
+    df[lags_col] = pd.DataFrame(np.log2(np.array(len(df[input_col])) / l_lags))
+    df[dfa_col] = pd.DataFrame(np.log2(f_res))
+    df[ext_col] = pd.DataFrame(np.log2(ext_df))
 
     return df
 
@@ -129,48 +131,44 @@ def fourier():
     pass
 
 
-def save_dfa_graphics(df, orig_col, profile_col, dfa_l_col, dfa_f_col, series_name='series',
-                      title0='origin series', title1='profile', title2='dfa_q'):
+def series_fig(df, name='input_signal'):
     """
-    two graphics compare method
-    use "function='compare_graphics', :params" in () process
+    saving input series and profile
 
-    :param df: DataFrame with considered time series
-    :param orig_col: initial time series from file or gen function
-    :param profile_col: computed profile for init time series
-    :param dfa_l_col: lg2 time window for dfa graphics
-    :param dfa_f_col: lg2 dfa function value for dfa graphics [] for q > 0
-    :param series_name: save result pic as "pic_name"
-    :param title0: title for origin series
-    :param title1: origin series profile
-    :param title2: detrending fluctuation analysis for origin series
-    :return: saved result graphics in figure
+    :param df: DataFrame
+    :param name: path name or input series type
+    :return: series and profile png graphics
     """
-    f, a = plt.subplots(nrows=1, ncols=3, figsize=(15, 5))
-
-    a[0].plot(df[orig_col])
-    a[0].set_title(title0)
-
-    a[1].plot(df[profile_col])
-    a[1].set_title(title1)
-
-    [a[2].plot(df[dfa_l_col], df[dfa_f_col[i]]) for i in range(len(dfa_f_col))]
-    a[2].legend(dfa_f_col, loc="best")
-    a[2].set_title(title2)
-
-    # f.text(0.78, 0.04, 'time window, $lgL$', ha='center', va='center')
-    # f.text(0.645, 0.5, 'de-trending function, $lgF$', ha='center', va='center', rotation='vertical')
-    savefig(series_name, dpi=100)
+    f, a = plt.subplots(nrows=1, ncols=2, figsize=(10, 5))
+    a[0].set_title('series')
+    a[1].set_title('profile')
+    a[0].plot(df['u'])
+    a[1].plot(df['profile'])
+    plt.savefig(name, dpi=100)
     plt.clf()
 
 
-def save_df(df, series_name):
+def save_dfa_graphics(df, st_dfa, ext_dfa, name='dfa_graphics'):
     """
-    :param df: DataFrame with considered time series
-    :param series_name: save result pic as "data frame name"
-    :return: saved data frame result
+    saving standard and extended DFA-function results
+
+    :param df: DataFrame of DFA analysis result
+    :param name: path name or input series type
+    :return: png graphics of DFA results
     """
-    df.to_csv(series_name + '.txt', sep=' ', index=0)
+    f, a = plt.subplots(nrows=1, ncols=3, figsize=(15, 5))
+
+    a[0].set_title('standard dfa (q:0, 5)')
+    a[1].set_title('extended dfa (q:0, 5)')
+    a[2].set_title('st. vs ext. tq(q)')
+
+    a[0].plot(df['output_lags'], df['dfa_0'],
+              df['output_lags'], df['dfa_5'])
+    a[1].plot(df['output_lags'], df['dfa_ext_0'],
+              df['output_lags'], df['dfa_ext_5'])
+    a[2].plot(range(6), st_dfa, range(6), ext_dfa)
+    plt.savefig(name, dpi=100)
+    plt.clf()
 
 
 FUNCTIONS = {
@@ -182,7 +180,7 @@ FUNCTIONS = {
     'sync_phase': sync_phase,
     'fourier': fourier,
     'save_dfa_graphics': save_dfa_graphics,
-    'save_df': save_df,
+    'series_fig': series_fig,
 }
 
 
