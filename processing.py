@@ -11,6 +11,8 @@ compare graphs, 3d-graphs, df results save
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+from matplotlib.font_manager import FontProperties
+from pylab import figure, plot, xlabel, grid, legend, title, savefig
 
 
 def integrate(df, input_col='u', output_col='integrate'):
@@ -100,12 +102,16 @@ def dfa1(df, input_col='u', q=1, l_lags=[5, 10, 20, 50, 100, 200],
         p = [np.polyfit(t[j], chunks[j], q) for j in range(len(t))]
         approx_chunks = [np.polyval(p[j], t[j]) for j in range(len(t))]
 
-        # extended dfa calculation named as 'ext_col'
-        ext_df.append(sum(
-            [max(np.sqrt((approx_chunks[i] - chunks[i])**2))
-             - min(np.sqrt((approx_chunks[i] - chunks[i])**2))
-                for i in range(len(approx_chunks))]
-        ) / len(approx_chunks))
+        # another way standard dfa
+        # sum([sum(np.sqrt((approx_chunks[i] - chunks[i]) ** 2)) / len(approx_chunks[i])
+        # for i in range(len(approx_chunks))]) / len(approx_chunks)
+
+        ext_df.append(
+            max([sum(np.sqrt((approx_chunks[i] - chunks[i]) ** 2)) / len(approx_chunks[i])
+                 for i in range(len(approx_chunks))])
+            - min([sum(np.sqrt((approx_chunks[i] - chunks[i]) ** 2)) / len(approx_chunks[i])
+                   for i in range(len(approx_chunks))])
+        )
 
         # de-trending
         approx = []
@@ -116,9 +122,9 @@ def dfa1(df, input_col='u', q=1, l_lags=[5, 10, 20, 50, 100, 200],
                 (df[input_col] - np.array(approx))**2)
         )/len(df[input_col]))
 
-    df[lags_col] = pd.DataFrame(np.log2(np.array(len(df[input_col])) / l_lags))
-    df[dfa_col] = pd.DataFrame(np.log2(f_res))
-    df[ext_col] = pd.DataFrame(np.log2(ext_df))
+    df[lags_col] = pd.DataFrame(np.log10(np.array(len(df[input_col])) / l_lags))
+    df[dfa_col] = pd.DataFrame(np.log10(f_res))
+    df[ext_col] = pd.DataFrame(np.log10(ext_df))
 
     return df
 
@@ -156,17 +162,11 @@ def save_dfa_graphics(df, st_dfa, ext_dfa, name='dfa_graphics'):
     :param name: path name or input series type
     :return: png graphics of DFA results
     """
-    f, a = plt.subplots(nrows=1, ncols=3, figsize=(15, 5))
-
-    a[0].set_title('standard dfa (q:0, 5)')
-    a[1].set_title('extended dfa (q:0, 5)')
-    a[2].set_title('st. vs ext. tq(q)')
-
-    a[0].plot(df['output_lags'], df['dfa_0'],
-              df['output_lags'], df['dfa_5'])
-    a[1].plot(df['output_lags'], df['dfa_ext_0'],
-              df['output_lags'], df['dfa_ext_5'])
-    a[2].plot(range(6), st_dfa, range(6), ext_dfa)
+    plt.plot(df['output_lags'], df['dfa_1'])
+    plt.plot(df['output_lags'], df['dfa_ext_1'])
+    figure(1, figsize=(10, 8))
+    grid(True)
+    legend((r'$alpha$: ' + str(st_dfa), r'$betta$: ' + str(ext_dfa)), prop=FontProperties(size=16))
     plt.savefig(name, dpi=100)
     plt.clf()
 

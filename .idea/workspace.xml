@@ -2,107 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="85863326-ebc9-407d-8b90-bfcf8b93df13" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph/90E22Q01.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph/90J16Q01.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph/90j30q01.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph/91C14Q02.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph/91b19q01.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph/91c12q04.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/0_2015_01_20_rat1_macro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/0_2015_01_20_rat1_micro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/0_2015_01_27_rat2_macro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/0_2015_01_27_rat2_micro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/0_2015_01_28_rat2_macro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/0_2015_01_28_rat2_micro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/0_2015_02_19_rat2_macro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/0_2015_02_19_rat2_micro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/0_2015_02_19_rat3_macro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/0_2015_02_19_rat3_micro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/0_2015_02_26_rat1_macro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/0_2015_02_26_rat1_micro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/0_2015_02_26_rat3_macro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/0_2015_02_26_rat3_micro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/1_2015_01_20_rat1_macro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/1_2015_01_20_rat1_micro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/1_2015_01_27_rat2_macro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/1_2015_01_27_rat2_micro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/1_2015_01_28_rat2_macro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/1_2015_01_28_rat2_micro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/1_2015_02_19_rat2_macro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/1_2015_02_19_rat2_micro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/1_2015_02_19_rat3_macro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/1_2015_02_19_rat3_micro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/1_2015_02_26_rat1_macro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/1_2015_02_26_rat1_micro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/1_2015_02_26_rat3_macro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/1_2015_02_26_rat3_micro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/2_2015_01_20_rat1_macro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/2_2015_01_20_rat1_micro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/2_2015_01_27_rat2_macro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/2_2015_01_27_rat2_micro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/2_2015_01_28_rat2_macro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/2_2015_01_28_rat2_micro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/2_2015_02_19_rat2_macro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/2_2015_02_19_rat2_micro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/2_2015_02_19_rat3_macro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/2_2015_02_19_rat3_micro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/2_2015_02_26_rat1_macro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/2_2015_02_26_rat1_micro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/2_2015_02_26_rat3_macro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/2_2015_02_26_rat3_micro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/3_2015_01_20_rat1_macro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/3_2015_01_20_rat1_micro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/3_2015_01_27_rat2_macro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/3_2015_01_27_rat2_micro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/3_2015_01_28_rat2_macro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/3_2015_01_28_rat2_micro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/3_2015_02_19_rat2_macro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/3_2015_02_19_rat2_micro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/3_2015_02_19_rat3_macro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/3_2015_02_19_rat3_micro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/3_2015_02_26_rat1_macro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/3_2015_02_26_rat1_micro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/3_2015_02_26_rat3_macro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/3_2015_02_26_rat3_micro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/4_2015_01_20_rat1_macro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/4_2015_01_20_rat1_micro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/4_2015_01_27_rat2_macro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/4_2015_01_27_rat2_micro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/4_2015_01_28_rat2_macro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/4_2015_01_28_rat2_micro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/4_2015_02_19_rat2_macro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/4_2015_02_19_rat2_micro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/4_2015_02_19_rat3_macro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/4_2015_02_19_rat3_micro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/4_2015_02_26_rat1_macro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/4_2015_02_26_rat1_micro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/4_2015_02_26_rat3_macro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_filtr/4_2015_02_26_rat3_micro.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_result/2_col_90E22Q01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_result/2_col_90J16Q01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_result/2_col_90j30q01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_result/2_col_91C14Q02.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_result/2_col_91b19q01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_result/2_col_91c12q04.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_result/3_col_90E22Q01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_result/3_col_90J16Q01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_result/3_col_90j30q01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_result/3_col_91C14Q02.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_result/3_col_91b19q01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_result/3_col_91c12q04.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_result/4_col_90E22Q01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_result/4_col_90E22Q01.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_result/4_col_90J16Q01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_result/4_col_90J16Q01.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_result/4_col_90j30q01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_result/4_col_90j30q01.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_result/4_col_91C14Q02.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_result/4_col_91C14Q02.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_result/4_col_91b19q01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_result/4_col_91b19q01.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_result/4_col_91c12q04.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neph_result/4_col_91c12q04.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/словарик.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/словарик.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/purple.png" beforeDir="false" afterPath="$PROJECT_DIR$/input/purple.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/purple.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input/purple.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/red.png" beforeDir="false" afterPath="$PROJECT_DIR$/input/red.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/red.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input/red.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/white.png" beforeDir="false" afterPath="$PROJECT_DIR$/input/white.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/white.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input/white.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/dfa_purple.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/dfa_purple.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/dfa_purple.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/dfa_purple.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/dfa_red.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/dfa_red.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/dfa_red.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/dfa_red.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/dfa_white.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/dfa_white.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/dfa_white.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/dfa_white.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/matlab_purple.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/matlab_red.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/matlab_white.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/processing.py" beforeDir="false" afterPath="$PROJECT_DIR$/processing.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/result.py" beforeDir="false" afterPath="$PROJECT_DIR$/result.py" afterDir="false" />
     </list>
@@ -117,17 +34,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/series.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="387">
-              <caret line="191" lean-forward="true" selection-start-line="191" selection-end-line="191" />
+            <state relative-caret-position="85">
+              <caret line="177" column="36" selection-start-line="177" selection-start-column="36" selection-end-line="177" selection-end-column="36" />
               <folding>
                 <element signature="e#0#172#1" />
                 <element signature="e#174#193#0" expanded="true" />
-                <element signature="e#288#935#0" />
-                <element signature="e#990#1444#0" />
-                <element signature="e#1512#2089#0" />
-                <element signature="e#2159#2689#0" />
-                <element signature="e#3208#3230#0" />
-                <element signature="e#3753#3904#0" />
               </folding>
             </state>
           </provider>
@@ -136,8 +47,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/processing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5050">
-              <caret line="210" lean-forward="true" selection-start-line="210" selection-end-line="210" />
+            <state relative-caret-position="-990">
+              <caret line="114" lean-forward="true" selection-start-line="114" selection-end-line="114" />
               <folding>
                 <element signature="e#0#317#1" />
                 <element signature="e#319#338#0" expanded="true" />
@@ -149,8 +60,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/result.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+            <state relative-caret-position="221">
+              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -214,18 +125,18 @@
         <option value="$PROJECT_DIR$/../book examples/README.txt" />
         <option value="$PROJECT_DIR$/../book examples/setup.py" />
         <option value="$PROJECT_DIR$/../book examples/book_example.py" />
-        <option value="$PROJECT_DIR$/series.py" />
         <option value="$PROJECT_DIR$/examples/complicity_s_akf.py" />
-        <option value="$PROJECT_DIR$/result.py" />
+        <option value="$PROJECT_DIR$/series.py" />
         <option value="$PROJECT_DIR$/processing.py" />
+        <option value="$PROJECT_DIR$/result.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-12" />
-    <option name="y" value="-12" />
-    <option name="width" value="1023" />
-    <option name="height" value="713" />
+    <option name="x" value="-15" />
+    <option name="y" value="-15" />
+    <option name="width" value="1025" />
+    <option name="height" value="715" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -238,8 +149,18 @@
         <subPane>
           <expand>
             <path>
-              <item name="useful_python_lib" type="b2602c69:ProjectViewProjectNode" />
-              <item name="useful_python_lib" type="462c0819:PsiDirectoryNode" />
+              <item name="dfa_lib" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dfa_lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dfa_lib" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dfa_lib" type="462c0819:PsiDirectoryNode" />
+              <item name="input" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dfa_lib" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dfa_lib" type="462c0819:PsiDirectoryNode" />
+              <item name="output" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -382,14 +303,14 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.19774011" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.17372881" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.91738266" visible="true" weight="0.31779662" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997175" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.08261732" side_tool="true" weight="0.042372882" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -397,15 +318,6 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/diff_eq.py" />
-    <entry file="file://$PROJECT_DIR$/diff_solver.py" />
-    <entry file="file://$PROJECT_DIR$/diff_module/lorenz_attr.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://D:/магистратура/I год/задача_курсовая/old_codes/signals.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
@@ -413,13 +325,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://D:/Санкт Петербург жизнь и работа/тестовое задание zifirium/zadanie.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="10" column="8" lean-forward="true" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://D:/Санкт Петербург жизнь и работа/тестовое задание zifirium/zadanie.py" />
     <entry file="file://$PROJECT_DIR$/diff_module/example.py" />
     <entry file="file://D:/магистратура/I год/задача_курсовая/index.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -455,32 +361,10 @@
     <entry file="file://$PROJECT_DIR$/data/4_2015_01_27_rat2_micro.txt" />
     <entry file="file://$PROJECT_DIR$/nephrons/90E22Q01_1.dat" />
     <entry file="file://$PROJECT_DIR$/data/0_2015_01_20_rat1_macro.txt" />
-    <entry file="file://$PROJECT_DIR$/../python archive func/Genseries.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../python archive func/Txtseries.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="13" column="17" lean-forward="true" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/neph/90J16Q01.dat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-75">
-          <caret column="4" selection-start-column="4" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/neph/90E22Q01.dat">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../python archive func/Genseries.py" />
+    <entry file="file://$PROJECT_DIR$/../python archive func/Txtseries.py" />
+    <entry file="file://$PROJECT_DIR$/neph/90J16Q01.dat" />
+    <entry file="file://$PROJECT_DIR$/neph/90E22Q01.dat" />
     <entry file="file://$PROJECT_DIR$/diff_module/solver.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
@@ -488,11 +372,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/neph_filtr/0_2015_01_20_rat1_macro.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2227" />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/neph_filtr/0_2015_01_20_rat1_macro.txt" />
     <entry file="file://$USER_HOME$/AppData/Local/Temp/Temp1_dynsys-master.zip/dynsys-master/examples/task_1.py" />
     <entry file="file://D:/магистратура/I год/sync/ExtendedAnalysis.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -526,13 +406,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/90J16Q01.png" />
     <entry file="file://$PROJECT_DIR$/neph/90J16Q01.png" />
-    <entry file="file://$PROJECT_DIR$/../python archive func/en_rus_correct.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="21" column="48" lean-forward="true" selection-start-line="21" selection-start-column="48" selection-end-line="21" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../python archive func/en_rus_correct.py" />
     <entry file="file://D:/магистратура/I год/задача_курсовая/old_codes/PavlovTest.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
@@ -544,9 +418,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/examples/series.png" />
-    <entry file="file://$PROJECT_DIR$/neph_result/4_col_91C14Q02.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/neph_result/4_col_91C14Q02.png" />
     <entry file="file://$PROJECT_DIR$/README.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
@@ -568,12 +440,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/examples/0_2015_01_20_rat1_micro.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/diff_sol.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/0_2015_01_20_rat1_micro.png" />
+    <entry file="file://$PROJECT_DIR$/examples/diff_sol.png" />
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="236">
@@ -595,9 +463,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/белый-красный_1k-1k.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/белый-красный_1k-1k.png" />
     <entry file="file://$PROJECT_DIR$/examples/complicity_s_akf.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
@@ -608,16 +474,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/w_noise_matlab.jpg">
+    <entry file="file://$PROJECT_DIR$/w_noise_matlab.jpg" />
+    <entry file="file://$PROJECT_DIR$/alpha_q.png" />
+    <entry file="file://$PROJECT_DIR$/output/dfa_white.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/alpha_q.png">
-      <provider selected="true" editor-type-id="images" />
+    <entry file="file://$PROJECT_DIR$/output/purple.eps" />
+    <entry file="file://$PROJECT_DIR$/input/purple.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/series.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="177" column="36" selection-start-line="177" selection-start-column="36" selection-end-line="177" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#172#1" />
+            <element signature="e#174#193#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/processing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5050">
-          <caret line="210" lean-forward="true" selection-start-line="210" selection-end-line="210" />
+        <state relative-caret-position="-990">
+          <caret line="114" lean-forward="true" selection-start-line="114" selection-end-line="114" />
           <folding>
             <element signature="e#0#317#1" />
             <element signature="e#319#338#0" expanded="true" />
@@ -625,27 +505,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/series.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="191" lean-forward="true" selection-start-line="191" selection-end-line="191" />
-          <folding>
-            <element signature="e#0#172#1" />
-            <element signature="e#174#193#0" expanded="true" />
-            <element signature="e#288#935#0" />
-            <element signature="e#990#1444#0" />
-            <element signature="e#1512#2089#0" />
-            <element signature="e#2159#2689#0" />
-            <element signature="e#3208#3230#0" />
-            <element signature="e#3753#3904#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/result.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+        <state relative-caret-position="221">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
