@@ -165,6 +165,8 @@ def save_dfa_graphics(df, st_dfa, ext_dfa, name='dfa_graphics'):
     plt.plot(df['output_lags'], df['dfa_1'])
     plt.plot(df['output_lags'], df['dfa_ext_1'])
     figure(1, figsize=(10, 8))
+    plt.xlabel(r'$lg L$')
+    plt.ylabel(r'$lg F, lg dF$')
     grid(True)
     legend((r'$alpha$: ' + str(st_dfa), r'$betta$: ' + str(ext_dfa)), prop=FontProperties(size=16))
     plt.savefig(name, dpi=100)
