@@ -4,12 +4,9 @@ import numpy as np
 
 # rewriting ../
 tp = 'open'
-df1 = s.load_series(path='series/' + tp + '.txt')[::100]
-df1.to_csv('series/' + tp + '_mod.txt', sep=' ', index=0)
-
-# load
-df = s.load_series(path='series/' + tp + '_mod.txt')
-df.columns = ['u']
+df = s.load_series(path='series/' + tp + '.txt')[::100]\
+    .reset_index(drop=True)\
+    .rename(columns={0: 'u'})
 
 # save signal and profile
 df = p.process(function='compute_profile', df=df)
