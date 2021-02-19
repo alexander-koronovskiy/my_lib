@@ -13,7 +13,7 @@ def test_existing_raw_file_aggregation():
         + "/app/data_raw/close_mod.txt"
     )
     neph_data_df.columns = ["u"]
-    assert len(neph_data_df.columns) > 1
+    assert not neph_data_df.empty
 
 
 def test_diff_solution_seq_handle_correctly():
@@ -26,7 +26,7 @@ def test_diff_solution_seq_handle_correctly():
         f=[f_x, f_y, f_z, f_u, f_v, f_w],
     )
     diff_solution_df.columns = ["t", "x", "y", "z", "u", "v", "w"]
-    assert len(diff_solution_df.columns) > 1
+    assert not diff_solution_df.empty
 
 
 # add tests for another sequences

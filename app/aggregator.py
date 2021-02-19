@@ -1,5 +1,5 @@
 """
-Aggregation raw data or sequence to 2-d: [t, u] or more-d: [t, u0..ux] time series
+Aggregation raw data or sequence to 1-d: [u] or more-d: [t, u0..ux] time series
 in pandas DataFrame format
 
 linear, nonlinear, harmonic and solution of differential equation sequence are agg.

@@ -1,6 +1,7 @@
 """
-linear, nonlinear, harmonic and solution of differential equation sequence
-are produced to aggregator
+one-column dataframe
+linear, nonlinear, harmonic and solution of differential equation
+sequence are produced to aggregator
 """
 
 import random
@@ -47,7 +48,7 @@ def linear(t0=0, t1=10, a=1, b=0, points=1000):
     """
     t = np.linspace(t0, t1, points)
     u = a * t + b
-    return pd.DataFrame(data={"t": t, "u": u})
+    return pd.DataFrame(data={"u": u})
 
 
 def nonlinear(t0=0, t1=10, a=1, b=0, c=0, n=3, points=1000):
@@ -66,7 +67,7 @@ def nonlinear(t0=0, t1=10, a=1, b=0, c=0, n=3, points=1000):
     """
     t = np.linspace(t0, t1, points)
     u = a * (t + b) ** n + c
-    return pd.DataFrame(data={"t": t, "u": u})
+    return pd.DataFrame(data={"u": u})
 
 
 def harmonic(t0=0, t1=10, a=1, omega=1, theta=0, points=1000):
@@ -84,7 +85,7 @@ def harmonic(t0=0, t1=10, a=1, omega=1, theta=0, points=1000):
     """
     t = np.linspace(t0, t1, points)
     u = a * np.cos(omega * t + theta)
-    return pd.DataFrame(data={"t": t, "u": u})
+    return pd.DataFrame(data={"u": u})
 
 
 def do_map(u=[0.1], r=4, points=1000):
@@ -100,7 +101,7 @@ def do_map(u=[0.1], r=4, points=1000):
     t = np.linspace(0, points - 1, points)
     for i in range(points):
         u.append(log_map(u[i], r))
-    return pd.DataFrame(data={"t": t, "u": u[:-1]})
+    return pd.DataFrame(data={"u": u[:-1]})
 
 
 def log_map(x, r):
@@ -129,12 +130,13 @@ def noise_gen(amp=1, type="white", pt=1000):
 
     t = [i for i in range(pt - 1)]
     noise = [random.uniform(-amp, +amp) for i in range(pt)]
-    return pd.DataFrame(data={"t": t, "u": smoother(noise)})
+    return pd.DataFrame(data={"u": smoother(noise)})
 
 
 # dyn sys equation ex
 # parameters: weak - 0.02, 0.08, 0.095, 0.12; strong - 0.2
 EPS = 0.02
+
 
 # Equation System
 def f_x(x):
