@@ -43,7 +43,8 @@ def load_series(path=None, generator=None, **kwargs):
     elif path is not None:
         with open(path) as file:
             data = pd.DataFrame([line.split() for line in file], dtype="float64")
+            if len(data.columns) == 1:
+                data.columns = ["u"]
         return data
-        # pd.read_csv(path, sep=' ')
     else:
         raise RuntimeError("You should set either path or generator!")

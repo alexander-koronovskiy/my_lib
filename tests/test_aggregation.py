@@ -8,15 +8,14 @@ import os
 from app.aggregator import load_series
 from app.data_gen import f_u, f_v, f_w, f_x, f_y, f_z
 
+file_path = (
+    os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    + "/data_raw/close_mod.txt"
+)
+
 
 def test_existing_raw_file_aggregation():
-    file_path = (
-        os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        + "/data_raw/close_mod.txt"
-    )
-    neph_data_df = load_series(path=file_path)
-    neph_data_df.columns = ["u"]
-    assert not neph_data_df.empty
+    assert not load_series(path=file_path).empty
 
 
 def test_diff_solution_seq_handle_correctly():

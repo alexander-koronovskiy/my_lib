@@ -2,16 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="85863326-ebc9-407d-8b90-bfcf8b93df13" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/resulting.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/test_resulting.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/test_transform_base.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/test_transform_complex.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data_gen.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/data_gen.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data_raw/close_mod.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data_raw/close_mod.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data_raw/open_mod.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data_raw/open_mod.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/aggregator.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/aggregator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/transform.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/transform.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_aggregation.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_aggregation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_transform_base.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_transform_base.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_transform_complex.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_transform_complex.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,9 +70,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="356" y="42" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1613266024742" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1613765020452">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1614890136466">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1613765020452" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1614890136466" />
   </component>
 </project>

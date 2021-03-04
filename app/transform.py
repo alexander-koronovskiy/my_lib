@@ -1,14 +1,13 @@
 """
-
-
-base
+complex results built by 2 coordinates usually: output values and lags
+complex results may contains more than one output values column
 """
 
 import numpy as np
 import pandas as pd
 
 
-def addiction(df_first, df_second, first_col, second_col, output_col="w"):
+def addiction(df_first, df_second, first_col, second_col, output_col="u"):
     """
     integration time series method
     use "function='addiction', :params" in () process
@@ -26,7 +25,7 @@ def addiction(df_first, df_second, first_col, second_col, output_col="w"):
     return df
 
 
-def multiply(df_first, df_second, first_col, second_col, output_col="w"):
+def multiply(df_first, df_second, first_col, second_col, output_col="u"):
     """
     integration time series method
     use "function='addiction', :params" in () process
@@ -100,7 +99,7 @@ def akf(df, lags=15, input_col="u", output_col="akf"):
         1.0 if l == 0 else np.corrcoef(df[input_col][l:], df[input_col][:-l])[0][1]
         for l in range(lags)
     ]
-    df = df.combine_first(pd.DataFrame(corr, columns=[output_col]))
+    df = df.combine_first(pd.DataFrame(corr, columns=[output_col])).dropna()
     return df
 
 
@@ -167,7 +166,7 @@ def dfa_extended(
     df[dfa_col] = pd.DataFrame(np.log10(f_res))
     df[ext_col] = pd.DataFrame(np.log10(ext_df))
 
-    return df
+    return df.dropna()
 
 
 FUNCTIONS = {
