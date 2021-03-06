@@ -25,4 +25,12 @@ def test_diff_solution_seq_handle_correctly():
         f=[f_x, f_y, f_z, f_u, f_v, f_w],
     )
     diff_solution_df.columns = ["t", "x", "y", "z", "u", "v", "w"]
+
+    # saving
+    file_path_2 = (
+        os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        + "/data_raw/diff_sol.txt"
+    )
+    diff_solution_df["u"].to_csv(file_path_2, index=False, header=None)
+
     assert not diff_solution_df.empty
