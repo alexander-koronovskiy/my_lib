@@ -99,18 +99,18 @@ def akf(df, lags=15, input_col="u", output_col="akf"):
         1.0 if l == 0 else np.corrcoef(df[input_col][l:], df[input_col][:-l])[0][1]
         for l in range(lags)
     ]
-    df = df.combine_first(pd.DataFrame(corr, columns=[output_col])).dropna()
+    df = df.combine_first(pd.DataFrame(corr, columns=[output_col]))
     return df
 
 
 def dfa_extended(
     df,
-    input_col="u",
+    input_col="profile",
     q=1,
-    l_lags=[5, 10, 20, 50, 100, 200],
-    lags_col="output_lags",
-    dfa_col="output_dfa",
-    ext_col="output_dfa_ext",
+    l_lags=(5, 10, 20, 50, 100, 200),
+    lags_col="dfa_lags",
+    dfa_col="dfa_transform",
+    ext_col="dfa_ext_transform",
 ):
     """
     De-trending fluctuation analysis - is one of the nonlinear dynamics methods
@@ -166,7 +166,7 @@ def dfa_extended(
     df[dfa_col] = pd.DataFrame(np.log10(f_res))
     df[ext_col] = pd.DataFrame(np.log10(ext_df))
 
-    return df.dropna()
+    return df
 
 
 FUNCTIONS = {
