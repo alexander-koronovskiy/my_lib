@@ -1,8 +1,8 @@
 import os
 
-from app.aggregator import load_series
-from app.resulting import df_handler
-from app.transform import process
+from calc.aggregator import load_series
+from calc.resulting import df_handler
+from calc.transform import process
 
 abs_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 csv_dir = abs_path + "/saved_dataframes"

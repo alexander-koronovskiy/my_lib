@@ -5,7 +5,7 @@ in pandas DataFrame format
 linear, nonlinear, harmonic and solution of differential equation sequence are agg.
 """
 
-from app.data_gen import diff_sol, harmonic, linear, nonlinear, pd
+from calc.data_gen import diff_sol, harmonic, linear, nonlinear, pd
 
 SERIES = {
     "linear": linear,

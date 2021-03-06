@@ -4,8 +4,8 @@ tests for base operation with dataframes works correctly
 
 import os
 
-from app.aggregator import load_series
-from app.transform import process
+from calc.aggregator import load_series
+from calc.transform import process
 
 file_path = (
     os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

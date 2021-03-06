@@ -5,8 +5,8 @@ is aggregated to dataframe format correctly
 
 import os
 
-from app.aggregator import load_series
-from app.data_gen import f_u, f_v, f_w, f_x, f_y, f_z
+from calc.aggregator import load_series
+from calc.data_gen import f_u, f_v, f_w, f_x, f_y, f_z
 
 file_path = (
     os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
