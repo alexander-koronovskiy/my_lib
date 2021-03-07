@@ -18,3 +18,11 @@
     background-color: #4CAF50;
     color: white;
 }
+
+#gallery {
+    display: flex;
+    height: auto;
+    width: 30%;
+    flex-direction: column;
+    justify-content: center;
+}

@@ -10,10 +10,15 @@
 
         <div class="vertical-menu">
             <a href="#" class="active">Home</a>
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
-            <a href="#">Link 4</a>
+            {% for file in time_series %}
+                <a href="#">{{file}}</a>
+            {% endfor %}
+        </div>
+
+        <div id="gallery">
+            {% for img in images %}
+                <img src="static/saved_images/{{img}}" width="40%"/>
+            {% endfor %}
         </div>
 
     </body>
