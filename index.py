@@ -8,7 +8,7 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     time_series = os.listdir("data_raw")
-    images = os.listdir("saved_images")
+    images = os.listdir("static/images")
     return render_template("index.html", time_series=time_series, images=images)
 
 

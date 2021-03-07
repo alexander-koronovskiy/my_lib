@@ -12,12 +12,12 @@ def df_handler(df):
 
     # routing files
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    csv_path = base_dir + "/saved_dataframes/dataframe.csv"
-    orig_img_path = base_dir + "/saved_images/orig.png"
-    profile_img_path = base_dir + "/saved_images/profile.png"
-    dfa_img_path = base_dir + "/saved_images/dfa.png"
-    dfa_ext_img_path = base_dir + "/saved_images/dfa_ext.png"
-    dfa_many_img_path = base_dir + "/saved_images/dfa_many.png"
+    csv_path = base_dir + "/dataframes/dataframe.csv"
+    orig_img_path = base_dir + "/static/images/orig.png"
+    profile_img_path = base_dir + "/static/images/profile.png"
+    dfa_img_path = base_dir + "/static/images/dfa.png"
+    dfa_ext_img_path = base_dir + "/static/images/dfa_ext.png"
+    dfa_many_img_path = base_dir + "/static/images/dfa_many.png"
 
     # save df to csv
     df.to_csv(csv_path, index=False)  # header=none

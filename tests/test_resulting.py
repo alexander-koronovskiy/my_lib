@@ -5,8 +5,8 @@ from calc.resulting import df_handler
 from calc.transform import process
 
 abs_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-csv_dir = abs_path + "/saved_dataframes"
-img_dir = abs_path + "/saved_images"
+csv_dir = abs_path + "/dataframes"
+img_dir = abs_path + "/static/images"
 
 
 def test_valid_df_handle():

@@ -3,9 +3,21 @@
   <component name="ChangeListManager">
     <list default="true" id="85863326-ebc9-407d-8b90-bfcf8b93df13" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calc/resulting.py" beforeDir="false" afterPath="$PROJECT_DIR$/calc/resulting.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.py" beforeDir="false" afterPath="$PROJECT_DIR$/index.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/saved_dataframes/dataframe.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saved_images/dfa.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saved_images/dfa_ext.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saved_images/dfa_many.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saved_images/orig.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saved_images/profile.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/saved_images/dfa.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/saved_images/dfa_ext.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/saved_images/dfa_many.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/saved_images/orig.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/saved_images/profile.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_resulting.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_resulting.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,22 +104,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="658" y="191" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1613254364185" />
-    <state width="1515" height="219" key="GridCell.Tab.0.bottom" timestamp="1615118157027">
+    <state width="1515" height="235" key="GridCell.Tab.0.bottom" timestamp="1615119265318">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="219" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1615118157027" />
-    <state width="1515" height="219" key="GridCell.Tab.0.center" timestamp="1615118157027">
+    <state width="1515" height="235" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1615119265318" />
+    <state width="1515" height="235" key="GridCell.Tab.0.center" timestamp="1615119265318">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="219" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1615118157027" />
-    <state width="1515" height="219" key="GridCell.Tab.0.left" timestamp="1615118157027">
+    <state width="1515" height="235" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1615119265318" />
+    <state width="1515" height="235" key="GridCell.Tab.0.left" timestamp="1615119265317">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="219" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1615118157027" />
-    <state width="1515" height="219" key="GridCell.Tab.0.right" timestamp="1615118157027">
+    <state width="1515" height="235" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1615119265317" />
+    <state width="1515" height="235" key="GridCell.Tab.0.right" timestamp="1615119265318">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="219" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1615118157027" />
+    <state width="1515" height="235" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1615119265318" />
     <state x="356" y="42" key="SettingsEditor" timestamp="1613266024742">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
