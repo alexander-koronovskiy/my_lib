@@ -19,16 +19,12 @@
 			<div class="vertical-menu">
 				<a href="#" class="active">Time Series</a>
 				{% for file in time_series %}
-					<a href="#" id="name">{{file}}</a>
+					<a href="#" id="file">{{file}}</a>
 				{% endfor %}
         	</div>
 		</div>
 
-		<div id="main-content">
-			{% for img in images %}
-                <img src="static/images/{{img}}" width="30%"/>
-            {% endfor %}
-		</div>
+		<div id="main-content"></div>
 
 	</div>
 
