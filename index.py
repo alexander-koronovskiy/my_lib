@@ -9,7 +9,12 @@ app = Flask(__name__)
 def index():
     time_series = os.listdir("data_raw")
     images = os.listdir("static/images")
-    return render_template("index.html", time_series=time_series, images=images)
+    return render_template(
+        "index.html",
+        time_series=time_series,
+        images=reversed(images),
+        title="Extended DFA transform",
+    )
 
 
 if __name__ == "__main__":

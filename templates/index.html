@@ -1,25 +1,36 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="/static/style.css">
-    </head>
-    <body>
 
-        <h1>Vertical Menu</h1>
+<head>
+	<title>{{title}}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" href="static/style.css" />
+</head>
 
-        <div class="vertical-menu">
-            <a href="#" class="active">Home</a>
-            {% for file in time_series %}
-                <a href="#">{{file}}</a>
-            {% endfor %}
-        </div>
+<body>
 
-        <div id="gallery">
-            {% for img in images %}
+	<div id="header">
+		<h1>{{title}}</h1>
+	</div>
+
+	<div id="content">
+
+		<div id="sidebar">
+			<div class="vertical-menu">
+				<a href="#" class="active">Time Series</a>
+				{% for file in time_series %}
+					<a href="#">{{file}}</a>
+				{% endfor %}
+        	</div>
+		</div>
+
+		<div id="main-content">
+			{% for img in images %}
                 <img src="static/images/{{img}}" width="40%"/>
             {% endfor %}
-        </div>
+		</div>
 
-    </body>
+	</div>
+
+</body>
+
 </html>
