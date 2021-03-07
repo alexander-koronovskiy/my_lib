@@ -1,5 +1,5 @@
-// User update information
-$("vertical-menu").click(function(){
-    var text = $("#name").val();
-    alert(text);
-});
+$('.vertical-menu > a').click(function() {
+  if ($(this).attr('id') === 'name') {
+    alert($(this).text())
+  }
+})
