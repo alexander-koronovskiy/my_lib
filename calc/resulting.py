@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 
-def df_handler(df):
+def dfa_handler(df):
 
     # validation
     if df["profile"].empty or df["dfa_transform"].empty:
