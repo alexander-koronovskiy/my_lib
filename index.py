@@ -2,6 +2,8 @@ import os
 
 from flask import Flask, render_template, request
 
+from calc.resulting import build_dfa_graphics
+
 app = Flask(__name__)
 
 
@@ -15,6 +17,8 @@ def index():
 
 @app.route("/graphics")
 def result():
+    path = request.args.get("jsdata")
+    build_dfa_graphics(path)
     images = os.listdir("static/images")
     return render_template("graphics.html", images=reversed(images))
 
