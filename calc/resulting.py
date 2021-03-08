@@ -24,18 +24,6 @@ matplotlib.use("Agg")
 base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-def clear():
-    """
-    clear file space before another request from client
-    """
-    img_dir = base_dir + "/static/images/"
-    file_list = [f for f in os.listdir(img_dir)]
-    for f in file_list:
-        os.remove(os.path.join(img_dir, f))
-    dataframe = base_dir + "/dataframes/dataframe.csv"
-    os.remove(dataframe)
-
-
 def build_dfa_graphics(path) -> None:
     """
     supporting method for web-interface.
@@ -83,3 +71,4 @@ def dfa_handler(df) -> None:
     sns.lineplot(x=df["dfa_lags"], y=df["dfa_ext_transform"]).get_figure().savefig(
         dfa_many_img_path
     )
+    plt.clf()
