@@ -137,3 +137,13 @@ def rk4(x, fx, n, hs):
     for i in range(n):
         x[i] = x[i] + (k1[i] + 2 * (k2[i] + k3[i]) + k4[i]) / 6
     return x
+
+
+def base_noise(points=1000):
+    """
+    method of harmonic function build
+    use "generator='white_noise', :params" in () load_series
+    """
+    mu, sigma = 0, 1
+    u = np.random.normal(mu, sigma, points)
+    return pd.DataFrame(data={"u": u})

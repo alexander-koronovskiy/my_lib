@@ -34,3 +34,18 @@ def test_diff_solution_seq_handle_correctly():
     diff_solution_df["u"].to_csv(file_path_2, index=False, header=None)
 
     assert not diff_solution_df.empty
+
+
+def test_data_create():
+    component_first_df = load_series(generator="harmonic", points=10000)
+    component_second_df = load_series(generator="white_noise", points=10000)
+    signal_df = component_first_df["u"] + component_second_df["u"]
+
+    # saving
+    file_path_3 = (
+        os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        + "/data_raw/test_signal.txt"
+    )
+    signal_df.to_csv(file_path_3, index=False, header=None)
+
+    assert not signal_df.empty
