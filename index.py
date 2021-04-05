@@ -18,7 +18,7 @@ def index():
 @app.route("/graphics")
 def result():
     path = request.args.get("jsdata")
-    build_dfa_graphics(path)
+    build_dwt_dfa_graphics(path)
     images = os.listdir("static/images")
     return render_template("graphics.html", images=reversed(images))
 
@@ -30,4 +30,3 @@ def page_not_found(e):
 
 if __name__ == "__main__":
     app.run()
-    # build_dwt_dfa_graphics("diff_sol.txt")
