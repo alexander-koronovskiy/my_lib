@@ -2,7 +2,7 @@ import os
 
 from flask import Flask, render_template, request
 
-from calc.resulting import build_dfa_graphics
+from calc.resulting import build_dfa_graphics, build_dwt_dfa_graphics
 
 app = Flask(__name__)
 
@@ -30,3 +30,4 @@ def page_not_found(e):
 
 if __name__ == "__main__":
     app.run()
+    # build_dwt_dfa_graphics("diff_sol.txt")

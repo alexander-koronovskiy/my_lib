@@ -41,7 +41,7 @@ def build_dfa_graphics(path) -> None:
     df = process(function="dfa_extended", df=df)
 
     # routing files
-    csv_path = base_dir + "/dataframe.csv"
+    csv_path = base_dir + "/dataframes/dataframe.csv"
     orig_img_path = base_dir + "/static/images/orig.png"
     profile_img_path = base_dir + "/static/images/profile.png"
     dfa_img_path = base_dir + "/static/images/dfa.png"
@@ -49,7 +49,7 @@ def build_dfa_graphics(path) -> None:
     dfa_many_img_path = base_dir + "/static/images/dfa_many.png"
 
     # save df to csv
-    df.to_csv(csv_path, index=False)  # header=none
+    df.to_csv(csv_path, index=False)
 
     # saving images
     sns.lineplot(data=df["u"]).get_figure().savefig(orig_img_path)
@@ -73,19 +73,27 @@ def build_dwt_dfa_graphics(path):
     """
     new algorithm
     """
+    # time series dfa building
+    df = load_series(path=base_dir + "/data_raw/" + path)
+    df = process(function="profile", df=df)
+    df = process(function="dfa_extended", df=df)
 
-    # load series
-    x = load_series(path=base_dir + "/data_raw/" + path)
-
-    # dwt
+    # dwt; cA, cD coefficient obtaining
     order = "db2"
-    cA, cD = pywt.dwt(x, order)
-    u = cA.transpose()[0]
-    df = pd.DataFrame(data={"u": u})
+    cA, cD = pywt.dwt(df, order)
+
+    # cA dfa building
+    ca_df = pd.DataFrame(data={"u": cA.transpose()[0]})
+    ca_df = process(function="profile", df=ca_df)
+    ca_df = process(function="dfa_extended", df=ca_df)
+
+    # cD dfa building
+    cd_df = pd.DataFrame(data={"u": cD.transpose()[0]})
+    cd_df = process(function="profile", df=cd_df)
+    cd_df = process(function="dfa_extended", df=cd_df)
+
+    print(df)
 
     # routing files
     # save df to csv
-    # saving images to
-    # 1-2.time_series, profile
-    # 3-4.cA, cD graphics
-    # 5-6.DFA cA, DFA cD
+    # saving images - ts, profile, ca, cd, dfa ca, dfa cd
