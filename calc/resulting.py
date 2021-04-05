@@ -79,7 +79,7 @@ def build_dfa_graphics(path) -> None:
 
 def build_dwt_dfa_graphics(path):
     """
-    new algorithm
+    cd & ca dfa build
     """
     del_old_files("/static/images")
     del_old_files("/dataframes")
@@ -128,6 +128,47 @@ def build_dwt_dfa_graphics(path):
     sns.lineplot(x=ca_df["dfa_lags"], y=ca_df["dfa_transform"]).get_figure().savefig(
         ca_dfa_img_path
     )
+    plt.clf()
+    sns.lineplot(x=cd_df["dfa_lags"], y=cd_df["dfa_transform"]).get_figure().savefig(
+        cd_dfa_img_path
+    )
+    plt.clf()
+
+
+def build_cd_dfa_graphics(path):
+    """
+    cd & ca dfa build
+    """
+    del_old_files("/static/images")
+    del_old_files("/dataframes")
+
+    # time series dfa building
+    df = load_series(path=base_dir + "/data_raw/" + path)
+    df = process(function="profile", df=df)
+    df = process(function="dfa_extended", df=df)
+
+    # dwt; cA, cD coefficient obtaining
+    order = "db2"
+    cA, cD = pywt.dwt(df, order)
+
+    # cD dfa building
+    cd_df = pd.DataFrame(data={"u": cD.transpose()[0]})
+    cd_df = process(function="profile", df=cd_df)
+    cd_df = process(function="dfa_extended", df=cd_df)
+
+    # routing images files
+    orig_img_path = base_dir + "/static/images/time_series.png"
+    cd_img_path = base_dir + "/static/images/cD.png"
+    cd_dfa_img_path = base_dir + "/static/images/DFA_cD.png"
+
+    # saving results
+    ts_path = base_dir + "/dataframes/time_series.csv"
+    cd_path = base_dir + "/dataframes/cD.csv"
+    df.to_csv(ts_path, index=False)
+    cd_df.to_csv(cd_path, index=False)
+    sns.lineplot(data=df["u"]).get_figure().savefig(orig_img_path)
+    plt.clf()
+    sns.lineplot(data=cd_df["u"]).get_figure().savefig(cd_img_path)
     plt.clf()
     sns.lineplot(x=cd_df["dfa_lags"], y=cd_df["dfa_transform"]).get_figure().savefig(
         cd_dfa_img_path
