@@ -13,6 +13,8 @@ import os
 
 import matplotlib
 import matplotlib.pyplot as plt
+import pandas as pd
+import pywt
 import seaborn as sns
 
 from calc.aggregator import load_series
@@ -26,27 +28,20 @@ base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 def build_dfa_graphics(path) -> None:
     """
-    supporting method for web-interface.
-    method contains all the step for DFA-transform building
+    web-interface supporting method
+    it contains all the step for DFA-transform building
+    and saves processing result
+
+    saves graphics of profile, time series
+    alpha and betta coefficient dependence
     """
+    # df building
     df = load_series(path=base_dir + "/data_raw/" + path)
     df = process(function="profile", df=df)
     df = process(function="dfa_extended", df=df)
-    dfa_handler(df)
-
-
-def dfa_handler(df) -> None:
-    """
-    the final stage of dataframe processing.
-    method saves processing result and graphic of this
-    """
-
-    # validation
-    if df["profile"].empty or df["dfa_transform"].empty:
-        raise KeyError("You transmit incomplete dataframe")
 
     # routing files
-    csv_path = base_dir + "/dataframes/dataframe.csv"
+    csv_path = base_dir + "/dataframe.csv"
     orig_img_path = base_dir + "/static/images/orig.png"
     profile_img_path = base_dir + "/static/images/profile.png"
     dfa_img_path = base_dir + "/static/images/dfa.png"
@@ -72,3 +67,25 @@ def dfa_handler(df) -> None:
         dfa_many_img_path
     )
     plt.clf()
+
+
+def build_dwt_dfa_graphics(path):
+    """
+    new algorithm
+    """
+
+    # load series
+    x = load_series(path=base_dir + "/data_raw/" + path)
+
+    # dwt
+    order = "db2"
+    cA, cD = pywt.dwt(x, order)
+    u = cA.transpose()[0]
+    df = pd.DataFrame(data={"u": u})
+
+    # routing files
+    # save df to csv
+    # saving images to
+    # 1-2.time_series, profile
+    # 3-4.cA, cD graphics
+    # 5-6.DFA cA, DFA cD
