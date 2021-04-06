@@ -18,7 +18,7 @@ def index():
 @app.route("/graphics")
 def result():
     path = request.args.get("jsdata")
-    build_cd_dfa_graphics(path)  # replace here and and import 'cd' to 'dwt'
+    build_cd_dfa_graphics(path)
     images = os.listdir("static/images")
     return render_template("graphics.html", images=reversed(images))
 
