@@ -3,6 +3,7 @@ import os
 from flask import Flask, render_template, request
 
 from calc.aggregator import load_series
+from calc.data_gen import f_u, f_v, f_w, f_x, f_y, f_z
 from calc.resulting import build_cd_dfa_graphics, build_dfa_graphics
 
 app = Flask(__name__)
@@ -19,7 +20,7 @@ def index():
 @app.route("/graphics")
 def result():
     path = request.args.get("jsdata")
-    build_cd_dfa_graphics(path)
+    build_dfa_graphics(path)
     images = os.listdir("static/images")
     return render_template("graphics.html", images=reversed(images))
 
@@ -30,15 +31,16 @@ def page_not_found(e):
 
 
 def save_ts():  # pre-index()
-    time_series = load_series(generator="harmonic") * load_series(
-        generator="gauss"
-    )  # multiplicative
-    time_series.to_csv("data_raw/gauss_mult.txt", header=None, index=False)
-
-
-def multi_wavelet():  # index()
-    pass
+    diff_ts = (
+        load_series(
+            generator="diff_sol",
+            t=[0.1, 0.1, 0.1, 0.1, 0.1, 0.1],
+            f=[f_x, f_y, f_z, f_u, f_v, f_w],
+        )[4]
+        + load_series(generator="gauss")["u"]
+    )
+    diff_ts.to_csv("data_raw/gauss_additiv.txt", header=None, index=False)
 
 
 if __name__ == "__main__":
-    app.run()
+    save_ts()
