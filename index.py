@@ -28,5 +28,16 @@ def page_not_found(e):
     return render_template("404.html"), 404
 
 
+def save_ts():  # index()
+    pass
+
+
+def multi_wavelet():  # -> result()
+    pass
+
+
 if __name__ == "__main__":
-    app.run()
+    from calc.data_gen import harmonic, base_noise
+
+    time_series = harmonic() * base_noise()
+    time_series.to_csv("data_raw/gauss_mult.txt")

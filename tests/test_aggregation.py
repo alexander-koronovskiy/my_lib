@@ -44,7 +44,7 @@ def test_data_create():
     # saving
     file_path_3 = (
         os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        + "/data_raw/test_signal.txt"
+        + "/data_raw/gauss_additiv.txt"
     )
     signal_df.to_csv(file_path_3, index=False, header=None)
 

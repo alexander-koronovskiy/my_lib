@@ -8,7 +8,7 @@ import numpy as np
 import pandas as pd
 
 
-def diff_sol(t, f, pt=1000, dt=0.02):
+def diff_sol(t, f, points=10000, dt=0.02):
     """
     method of differential equation solution
     use: "generator='diff_sol', :params" in () load_series
@@ -22,7 +22,7 @@ def diff_sol(t, f, pt=1000, dt=0.02):
     size = len(f)
     res = []
     t0 = []
-    for i in range(pt):
+    for i in range(points):
         t0.append(i * dt)
         t = rk4(t, f, size, dt)
         res.append([t[j] for j in range(len(t))])
@@ -32,7 +32,7 @@ def diff_sol(t, f, pt=1000, dt=0.02):
     return t0.join(res)
 
 
-def linear(t0=0, t1=10, a=1, b=0, points=1000):
+def linear(points=10000, t0=0, t1=10, a=1, b=0):
     """
     method of linear function build
     use "generator='linear', :params" in () load_series
@@ -49,7 +49,7 @@ def linear(t0=0, t1=10, a=1, b=0, points=1000):
     return pd.DataFrame(data={"u": u})
 
 
-def nonlinear(t0=0, t1=10, a=1, b=0, c=0, n=3, points=1000):
+def nonlinear(points=10000, t0=0, t1=10, a=1, b=0, c=0, n=3):
     """
     method of nonlinear function build
     use "generator='nonlinear', :params" in () load_series
@@ -67,7 +67,7 @@ def nonlinear(t0=0, t1=10, a=1, b=0, c=0, n=3, points=1000):
     return pd.DataFrame(data={"u": u})
 
 
-def harmonic(t0=0, t1=10, a=1, omega=1, theta=0, points=1000):
+def harmonic(points=10000, t0=0, t1=10, a=1, omega=1, theta=0):
     """
     method of harmonic function build
     use "generator='harmonic', :params" in () load_series
@@ -139,7 +139,7 @@ def rk4(x, fx, n, hs):
     return x
 
 
-def base_noise(points=1000):
+def base_noise(points=10000):
     """
     method of harmonic function build
     use "generator='white_noise', :params" in () load_series
