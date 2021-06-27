@@ -3,7 +3,6 @@ import os
 from flask import Flask, render_template, request
 
 from calc.aggregator import load_series
-from calc.data_gen import f_u, f_v, f_w, f_x, f_y, f_z
 from calc.resulting import build_cd_dfa_graphics, build_dfa_graphics
 
 app = Flask(__name__)
@@ -31,16 +30,10 @@ def page_not_found(e):
 
 
 def save_ts():  # pre-index()
-    diff_ts = (
-        load_series(
-            generator="diff_sol",
-            t=[0.1, 0.1, 0.1, 0.1, 0.1, 0.1],
-            f=[f_x, f_y, f_z, f_u, f_v, f_w],
-        )[4]
-        + load_series(generator="gauss")["u"]
+    (load_series(path="data_raw/harmonic.txt") + load_series(generator="gauss")).to_csv(
+        "data_raw/gauss_additiv.txt", header=None, index=False
     )
-    diff_ts.to_csv("data_raw/gauss_additiv.txt", header=None, index=False)
 
 
 if __name__ == "__main__":
-    save_ts()
+    app.run()
