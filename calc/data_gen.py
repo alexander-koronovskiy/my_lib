@@ -139,7 +139,7 @@ def rk4(x, fx, n, hs):
     return x
 
 
-def base_noise(points=10000):
+def gauss_noise(points=10000):
     """
     method of harmonic function build
     use "generator='white_noise', :params" in () load_series

@@ -5,14 +5,14 @@ in pandas DataFrame format
 linear, nonlinear, harmonic and solution of differential equation sequence are agg.
 """
 
-from calc.data_gen import base_noise, diff_sol, harmonic, linear, nonlinear, pd
+from calc.data_gen import diff_sol, gauss_noise, harmonic, linear, nonlinear, pd
 
 SERIES = {
     "linear": linear,
     "nonlinear": nonlinear,
     "harmonic": harmonic,
     "diff_sol": diff_sol,
-    "white_noise": base_noise,
+    "gauss": gauss_noise,
 }
 
 

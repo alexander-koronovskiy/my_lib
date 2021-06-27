@@ -2,6 +2,7 @@ import os
 
 from flask import Flask, render_template, request
 
+from calc.aggregator import load_series
 from calc.resulting import build_cd_dfa_graphics, build_dfa_graphics
 
 app = Flask(__name__)
@@ -28,16 +29,16 @@ def page_not_found(e):
     return render_template("404.html"), 404
 
 
-def save_ts():  # index()
-    pass
+def save_ts():  # pre-index()
+    time_series = load_series(generator="harmonic") * load_series(
+        generator="gauss"
+    )  # multiplicative
+    time_series.to_csv("data_raw/gauss_mult.txt", header=None, index=False)
 
 
-def multi_wavelet():  # -> result()
+def multi_wavelet():  # index()
     pass
 
 
 if __name__ == "__main__":
-    from calc.data_gen import harmonic, base_noise
-
-    time_series = harmonic() * base_noise()
-    time_series.to_csv("data_raw/gauss_mult.txt")
+    app.run()
