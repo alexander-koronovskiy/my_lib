@@ -10,7 +10,7 @@ from calc.data_gen import f_u, f_v, f_w, f_x, f_y, f_z
 
 file_path = (
     os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    + "/data_raw/close_mod.txt"
+    + "/pure_data/close_mod.txt"
 )
 
 
@@ -29,7 +29,7 @@ def test_diff_solution_seq_handle_correctly():
     # saving
     file_path_2 = (
         os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        + "/data_raw/diff_sol.txt"
+        + "/pure_data/diff_sol.txt"
     )
     diff_solution_df["u"].to_csv(file_path_2, index=False, header=None)
 
@@ -44,7 +44,7 @@ def test_data_create():
     # saving
     file_path_3 = (
         os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        + "/data_raw/gauss_additiv.txt"
+        + "/pure_data/gauss_additiv.txt"
     )
     signal_df.to_csv(file_path_3, index=False, header=None)
 

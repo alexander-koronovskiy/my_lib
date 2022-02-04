@@ -10,7 +10,7 @@ img_dir = abs_path + "/static/images"
 
 
 def test_valid_dfa_handle():
-    df = load_series(path=abs_path + "/data_raw/close_mod.txt")
+    df = load_series(path=abs_path + "/pure_data/close_mod.txt")
     df = process(function="profile", df=df)
     df = process(function="dfa_extended", df=df)
     dfa_handler(df)

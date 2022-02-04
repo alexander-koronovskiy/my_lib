@@ -9,7 +9,7 @@ from calc.transform import process
 
 file_path = (
     os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    + "/data_raw/close_mod.txt"
+    + "/pure_data/close_mod.txt"
 )
 
 

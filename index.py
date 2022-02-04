@@ -6,11 +6,12 @@ from calc.aggregator import load_series
 from calc.resulting import build_cd_dfa_graphics, build_dfa_graphics
 
 app = Flask(__name__)
+ORIG_DATA = "pure_data"
 
 
 @app.route("/")
 def index():
-    time_series = os.listdir("data_raw")
+    time_series = os.listdir(ORIG_DATA)
     return render_template(
         "index.html", time_series=time_series, title="Extended DFA transform"
     )
@@ -29,11 +30,10 @@ def page_not_found(e):
     return render_template("404.html"), 404
 
 
-def save_ts():  # pre-index()
-    (load_series(path="data_raw/harmonic.txt") + load_series(generator="gauss")).to_csv(
-        "data_raw/gauss_additiv.txt", header=None, index=False
-    )
+def save_ts(upload_dir, file_name):  # pre-index()
+    (load_series(generator="linear"))\
+        .to_csv(f"{upload_dir}/{file_name}", header=None, index=False)
 
 
 if __name__ == "__main__":
-    app.run()
+    save_ts("pure_data", "linear.txt")

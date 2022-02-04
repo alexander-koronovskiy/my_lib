@@ -46,7 +46,7 @@ def build_dfa_graphics(path) -> None:
     del_old_files("/dataframes")
 
     # dfa building
-    df = load_series(path=base_dir + "/data_raw/" + path)
+    df = load_series(path=base_dir + "/pure_data/" + path)
     df = process(function="profile", df=df)
     df = process(function="dfa_extended", df=df)
 
@@ -85,7 +85,7 @@ def build_cd_dfa_graphics(path):
     del_old_files("/dataframes")
 
     # time series and cD coefficient obtaining
-    df = load_series(path=base_dir + "/data_raw/" + path)
+    df = load_series(path=base_dir + "/pure_data/" + path)
     order = "db8"
     cA, cD = pywt.dwt(df, order)
     cd_df = pd.DataFrame({"u": cD.transpose()[-1]})
