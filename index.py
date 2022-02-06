@@ -3,6 +3,7 @@ import os
 from flask import Flask, render_template, request
 
 from calc.aggregator import load_series
+from calc.transform import piecewise
 from calc.resulting import build_cd_dfa_graphics, build_dfa_graphics
 
 app = Flask(__name__)
@@ -31,9 +32,11 @@ def page_not_found(e):
 
 
 def save_ts(upload_dir, file_name):  # pre-index()
-    (load_series(generator="linear"))\
+    df = load_series(generator="gauss")
+
+    (piecewise(df))\
         .to_csv(f"{upload_dir}/{file_name}", header=None, index=False)
 
 
 if __name__ == "__main__":
-    app.run()
+    save_ts("gauss_threshold", "test01.txt")

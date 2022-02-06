@@ -7,6 +7,14 @@ import numpy as np
 import pandas as pd
 
 
+def piecewise(ts_df,  ts_col="u",  output_col="piecewise"):
+    """
+    """
+    based_df = pd.DataFrame(data={"zeros": np.zeros(len(ts_df))})
+    # based_df[output_col] = ts_df[ts_col] + based_df["zeros"]
+    return based_df
+
+
 def addiction(df_first, df_second, first_col, second_col, output_col="u"):
     """
     integration time series method
