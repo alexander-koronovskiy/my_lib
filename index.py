@@ -8,6 +8,7 @@ from calc.resulting import build_cd_dfa_graphics, build_dfa_graphics
 
 app = Flask(__name__)
 ORIG_DATA = "filtered_data"
+ORIG_IMG_SCALE = 5500, 6000
 
 
 @app.route("/")
@@ -21,7 +22,7 @@ def index():
 @app.route("/graphics")
 def result():
     path = request.args.get("jsdata")
-    build_dfa_graphics(path)
+    build_dfa_graphics(ORIG_DATA, path, ORIG_IMG_SCALE)
     images = os.listdir("static/images")
     return render_template("graphics.html", images=reversed(images))
 
