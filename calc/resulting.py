@@ -24,6 +24,7 @@ matplotlib.use("Agg")
 
 
 base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+scale_origin = 5500, 6000
 
 
 def del_old_files(dir) -> None:
@@ -60,7 +61,8 @@ def build_dfa_graphics(path) -> None:
 
     # saving results
     df.to_csv(csv_path, index=False)
-    sns.lineplot(data=df["u"]).get_figure().savefig(orig_img_path)
+    sns.lineplot(data=df["u"][scale_origin[0]:scale_origin[1]])\
+        .get_figure().savefig(orig_img_path)
     plt.clf()
     sns.lineplot(data=df["profile"]).get_figure().savefig(profile_img_path)
     plt.clf()
@@ -106,7 +108,8 @@ def build_cd_dfa_graphics(path):
     # saving results
     df.to_csv(ts_path, index=False)
     cd_df.to_csv(cd_path, index=False)
-    sns.lineplot(data=df["u"]).get_figure().savefig(orig_img_path)
+    sns.lineplot(data=df["u"][scale_origin[0]:scale_origin[1]])\
+        .get_figure().savefig(orig_img_path)
     plt.clf()
     sns.lineplot(data=cd_df["u"]).get_figure().savefig(cd_img_path)
     plt.clf()

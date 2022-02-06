@@ -36,4 +36,4 @@ def save_ts(upload_dir, file_name):  # pre-index()
 
 
 if __name__ == "__main__":
-    save_ts("pure_data", "linear.txt")
+    app.run()
