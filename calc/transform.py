@@ -5,6 +5,18 @@ complex results may contains more than one output values column
 
 import numpy as np
 import pandas as pd
+from functools import reduce
+
+
+def thresholding(df, ts_col="u"):
+    a = [[i for i in range(j * 1000, (j+1)*1000)]
+         for j in (1, 3, 5, 7, 9)]
+    return df.query(f"index not in {[reduce(lambda x,y: x+y, a)][0]}")
+
+
+def filtering(df):
+    df.loc[(df.u < 0), 'u'] = 0
+    return df
 
 
 def addiction(df_first, df_second, first_col, second_col, output_col="u"):
@@ -104,13 +116,13 @@ def akf(df, lags=15, input_col="u", output_col="akf"):
 
 
 def dfa_extended(
-    df,
-    input_col="profile",
-    q=1,
-    l_lags=(5, 10, 20, 50, 100, 200),
-    lags_col="dfa_lags",
-    dfa_col="dfa_transform",
-    ext_col="dfa_ext_transform",
+        df,
+        input_col="profile",
+        q=1,
+        l_lags=(5, 10, 20, 50, 100, 200),
+        lags_col="dfa_lags",
+        dfa_col="dfa_transform",
+        ext_col="dfa_ext_transform",
 ):
     """
     De-trending fluctuation analysis - is one of the nonlinear dynamics methods
@@ -177,6 +189,9 @@ FUNCTIONS = {
     "approx": approx,
     "akf": akf,
     "dfa_extended": dfa_extended,
+
+    "thresholding": thresholding,
+    "filtering": filtering
 }
 
 

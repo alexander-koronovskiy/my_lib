@@ -22,7 +22,6 @@ from calc.transform import process
 
 matplotlib.use("Agg")
 
-
 base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -33,7 +32,7 @@ def del_old_files(dir) -> None:
         os.remove(os.path.join(curdir, f))
 
 
-def build_dfa_graphics(path) -> None:
+def build_dfa_graphics(series_dir, path, scale) -> None:
     """
     web-interface supporting method
     it contains all the step for DFA-transform building
@@ -46,7 +45,7 @@ def build_dfa_graphics(path) -> None:
     del_old_files("/dataframes")
 
     # dfa building
-    df = load_series(path=base_dir + "/data_raw/" + path)
+    df = load_series(path=base_dir + "/" + series_dir + "/" + path)
     df = process(function="profile", df=df)
     df = process(function="dfa_extended", df=df)
 
@@ -60,7 +59,8 @@ def build_dfa_graphics(path) -> None:
 
     # saving results
     df.to_csv(csv_path, index=False)
-    sns.lineplot(data=df["u"]).get_figure().savefig(orig_img_path)
+    sns.lineplot(data=df["u"][scale[0]:scale[1]])\
+        .get_figure().savefig(orig_img_path)
     plt.clf()
     sns.lineplot(data=df["profile"]).get_figure().savefig(profile_img_path)
     plt.clf()
@@ -77,7 +77,7 @@ def build_dfa_graphics(path) -> None:
     plt.clf()
 
 
-def build_cd_dfa_graphics(path):
+def build_cd_dfa_graphics(series_dir, path, scale):
     """
     new algorithm - cd dfa build
     """
@@ -85,7 +85,7 @@ def build_cd_dfa_graphics(path):
     del_old_files("/dataframes")
 
     # time series and cD coefficient obtaining
-    df = load_series(path=base_dir + "/data_raw/" + path)
+    df = load_series(path=base_dir + "/" + series_dir + "/" + path)
     order = "db8"
     cA, cD = pywt.dwt(df, order)
     cd_df = pd.DataFrame({"u": cD.transpose()[-1]})
@@ -106,7 +106,8 @@ def build_cd_dfa_graphics(path):
     # saving results
     df.to_csv(ts_path, index=False)
     cd_df.to_csv(cd_path, index=False)
-    sns.lineplot(data=df["u"]).get_figure().savefig(orig_img_path)
+    sns.lineplot(data=df["u"][scale[0]:scale[1]])\
+        .get_figure().savefig(orig_img_path)
     plt.clf()
     sns.lineplot(data=cd_df["u"]).get_figure().savefig(cd_img_path)
     plt.clf()
